@@ -36,7 +36,7 @@ num_combs.times do
     active_adv = 600
     Appointment.create(worker_bee_id: cur_bee.id, date: date,
       pollen_glob: rand(5.0..17.9).round(1), nectar: active_adv,
-      advisement: active_adv)
+      advisement: active_adv, adv_accepted: true)
 
     pg_days = [rand(2..3), rand(5..6), rand(7..8), rand(10..11), rand(13..14)]
     adv_days = [rand(4..8), rand(11..14)]
@@ -69,7 +69,8 @@ num_combs.times do
       end
 
       Appointment.create(worker_bee_id: cur_bee.id, date: date,
-        pollen_glob: pollen_glob, nectar: nectar, advisement: new_adv)
+        pollen_glob: pollen_glob, nectar: nectar, advisement: new_adv,
+        adv_accepted: nectar == active_adv)
     end
   end
 end
