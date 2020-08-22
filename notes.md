@@ -17,3 +17,9 @@
 8. Do I need a column in Appointments for Advisement_Accepted? What does this accomplish? I can just look at if the Nectar given amount matches the active Advisement amount.
 
 9. Once an "Edit Advisement" form updates an Advisement, all the % Accepted columns above and up until the next Advisement needs to update.
+
+10. :update route on WorkerBees to support Changing its Comb is not yet considered.
+
+11. can make "Overruled" like "Liked" to make RESTful
+
+12. % Accepted calculation into ActiveSupport Concern?
