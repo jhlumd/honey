@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: worker_bees
+#
+#  id         :bigint           not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe WorkerBee, type: :model do
