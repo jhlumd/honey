@@ -17,7 +17,6 @@ ss_min = 10.0   # Set min p/g SweetSpot
 ss_max = 15.0   # Set max p/g SweetSpot
 pop_min = 5     # Set min number of Bees in a Comb
 pop_max = 10    # Set max number of Bees in a Comb
-num_appt = 14   # Set number of "Appointment" date entries per Bee
 
 # --- Create Combs
 num_combs.times do
@@ -33,30 +32,32 @@ num_combs.times do
 
     # --- Create Appointments (PollenGlob, Nectar, Advisement)
     # Do first appt manually
-    date = Date.new(2020, 7, 12)
+    date = Date.new(2020, 7, 15)
     active_adv = 600
     Appointment.create(worker_bee_id: cur_bee.id, date: date,
       pollen_glob: rand(5.0..17.9).round(1), nectar: active_adv,
       advisement: active_adv)
 
-    num_appt.times do
+    pg_days = [rand(2..3), rand(5..6), rand(7..8), rand(10..11), rand(13..14)]
+    adv_days = [rand(4..8), rand(11..14)]
+    for i in 1..14 do
       # Dates: To emulate 2-3 times a week, 20% of the time the next appt is
       # +2 days and +3 days 80%
-      next_day = 2
+      d_to_add = 2
       if rand() <= 0.8
-        next_day += 1
+        d_to_add += 1
       end
-      date += next_day
+      date += d_to_add
 
-      # PollenGlob measurement - about once weekly means 40% of the time
+      # PollenGlob measurement - about once weekly
       pollen_glob = nil
-      if rand() <= 0.4 
+      if pg_days.include?(i) 
         pollen_glob = rand(5.0..17.9).round(1)
       end
 
       # Advisement - given every couple of weeks means 20% of the time
       new_adv = nil
-      if rand() <= 0.2
+      if adv_days.include?(i) 
         new_adv = rand(2..200) * 100
       end
       active_adv = new_adv.nil? ? active_adv : new_adv
