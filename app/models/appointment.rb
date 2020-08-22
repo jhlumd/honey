@@ -14,5 +14,8 @@
 #
 
 class Appointment < ApplicationRecord
+  # validations fixme
+
   belongs_to :worker_bee
+  validates :worker_bee, presence: { message: "must be assigned" }
 end

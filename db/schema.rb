@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20200822111015) do
 
   create_table "combs", force: :cascade do |t|
     t.string "supervisor", null: false
-    t.decimal "sweet_spot", null: false
+    t.decimal "sweet_spot", precision: 3, scale: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
