@@ -35,7 +35,7 @@ num_combs.times do
     date = Date.new(2020, 7, 15)
     active_adv = 600
     Appointment.create(worker_bee_id: cur_bee.id, date: date,
-      pollen_glob: rand(5.0..17.9).round(1), nectar: active_adv,
+      pollen_globs: rand(5.0..17.9).round(1), nectar: active_adv,
       advisement: active_adv, adv_accepted: true)
 
     pg_days = [rand(2..3), rand(5..6), rand(7..8), rand(10..11), rand(13..14)]
@@ -50,9 +50,9 @@ num_combs.times do
       date += d_to_add
 
       # PollenGlob measurement - about once weekly
-      pollen_glob = nil
+      pollen_globs = nil
       if pg_days.include?(i) 
-        pollen_glob = rand(5.0..17.9).round(1)
+        pollen_globs = rand(5.0..17.9).round(1)
       end
 
       # Advisement - given every couple of weeks means 20% of the time
@@ -69,7 +69,7 @@ num_combs.times do
       end
 
       Appointment.create(worker_bee_id: cur_bee.id, date: date,
-        pollen_glob: pollen_glob, nectar: nectar, advisement: new_adv,
+        pollen_globs: pollen_globs, nectar: nectar, advisement: new_adv,
         adv_accepted: nectar == active_adv)
     end
   end
