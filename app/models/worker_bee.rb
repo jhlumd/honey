@@ -6,12 +6,14 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  name       :string           not null
-#  comb_id    :bigint
+#  comb_id    :bigint           not null
 #
 
 class WorkerBee < ApplicationRecord
-  validates :name, presence: true
   belongs_to :comb
-  validates :comb, presence: { message: "must be assigned" }
-  has_many :appointments, inverse_of: :worker_bee
+
+  has_many :appointments, inverse_of: :worker_bee, dependent: :destroy
+  
+  validates :name, presence: true
+  validates :comb, presence: { message: "affiliation required" }
 end

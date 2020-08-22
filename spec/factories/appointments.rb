@@ -3,7 +3,7 @@
 # Table name: appointments
 #
 #  id            :bigint           not null, primary key
-#  worker_bee_id :bigint
+#  worker_bee_id :bigint           not null
 #  date          :date             not null
 #  pollen_globs  :decimal(3, 1)
 #  nectar        :integer          not null

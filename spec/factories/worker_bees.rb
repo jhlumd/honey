@@ -6,7 +6,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  name       :string           not null
-#  comb_id    :bigint
+#  comb_id    :bigint           not null
 #
 
 FactoryBot.define do

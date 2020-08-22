@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20200822111015) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.bigint "worker_bee_id"
+    t.bigint "worker_bee_id", null: false
     t.date "date", null: false
     t.decimal "pollen_globs", precision: 3, scale: 1
     t.integer "nectar", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20200822111015) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
-    t.bigint "comb_id"
+    t.bigint "comb_id", null: false
     t.index ["comb_id"], name: "index_worker_bees_on_comb_id"
   end
 
