@@ -19,12 +19,12 @@ pop_max = 20    # Set max number of Bees in a Comb
 num_combs.times do
   supervisor = Faker::Name.first_name
   sweet_spot = rand(ss_min..ss_max).round(1)
-  comb1 = Comb.create(supervisor: supervisor, sweet_spot: sweet_spot)
+  cur_comb = Comb.create(supervisor: supervisor, sweet_spot: sweet_spot)
 
   population = rand(pop_min..pop_max)
 
   population.times do
     name = Faker::Name.first_name
-    WorkerBee.create(name: name, comb_id: comb1.id)
+    WorkerBee.create(name: name, comb_id: cur_comb.id)
   end
 end
