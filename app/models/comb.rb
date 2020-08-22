@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  supervisor :string           not null
-#  sweet_spot :decimal(, )      not null
+#  sweet_spot :decimal(3, 1)    not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

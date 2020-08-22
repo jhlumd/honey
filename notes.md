@@ -23,3 +23,5 @@
 11. can make "Overruled" like "Liked" to make RESTful
 
 12. % Accepted calculation into ActiveSupport Concern?
+
+13. Metrics to show for WorkerBee ID page/card: highest p/g collected, average, lowest, total nectar consumed this month, etc.
