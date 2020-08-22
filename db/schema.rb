@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200822053657) do
+ActiveRecord::Schema.define(version: 20200822111015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "worker_bee_id"
+    t.date "date", null: false
+    t.decimal "pollen_globs", precision: 3, scale: 1
+    t.integer "nectar", null: false
+    t.integer "advisement"
+    t.boolean "adv_accepted", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_appointments_on_date"
+    t.index ["worker_bee_id"], name: "index_appointments_on_worker_bee_id"
+  end
 
   create_table "combs", force: :cascade do |t|
     t.string "supervisor", null: false
@@ -30,5 +43,6 @@ ActiveRecord::Schema.define(version: 20200822053657) do
     t.index ["comb_id"], name: "index_worker_bees_on_comb_id"
   end
 
+  add_foreign_key "appointments", "worker_bees"
   add_foreign_key "worker_bees", "combs"
 end
