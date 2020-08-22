@@ -17,6 +17,6 @@ class Comb < ApplicationRecord
 
   validates :supervisor, :sweet_spot, presence: true
   validates :sweet_spot, inclusion: { in: valid_ss,
-    message: "%{value} must be between 10.0 and 15.0 (0.1 increment)" }
+    message: "must be between 10.0 and 15.0 (only 0.1 increment)" }
   has_many :worker_bees, inverse_of: :comb
 end

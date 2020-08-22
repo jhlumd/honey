@@ -12,5 +12,5 @@
 class WorkerBee < ApplicationRecord
   validates :name, presence: true
   belongs_to :comb
-  validates :comb, presence: true
+  validates :comb, presence: { message: "must be assigned" }
 end
