@@ -25,8 +25,6 @@ class Appointment < ApplicationRecord
     greater_than_or_equal_to: 200, less_than_or_equal_to:20000,
     allow_nil: true }
   validate :nectar_val, :advisement_increment
-  validates :adv_accepted, inclusion: { in: [true, false],
-    message: "must be either true or false" }
 
   private
     def nectar_val
