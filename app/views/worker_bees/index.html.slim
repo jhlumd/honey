@@ -2,12 +2,11 @@ h1 List of All Worker Bees
 
 table
   tr
+    th ID-CombID
     th Name
-    th Comb
 
   - @worker_bees.each do |bee|
     tr
+      td = link_to  "#{bee.id}-C#{bee.comb_id}", worker_bee_path(bee)
       td = bee.name
-      td = bee.comb_id
-      td = link_to  "Show", worker_bee_path(bee)
       
