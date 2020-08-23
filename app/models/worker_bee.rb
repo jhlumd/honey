@@ -12,7 +12,8 @@
 class WorkerBee < ApplicationRecord
   belongs_to :comb
 
-  has_many :appointments, inverse_of: :worker_bee, dependent: :destroy
+  has_many :appointments, -> { order "date DESC" }, inverse_of: :worker_bee,
+    dependent: :destroy
   
   validates :name, presence: true
   validates :comb, presence: { message: "affiliation required" }

@@ -6,3 +6,10 @@ tr
   td = "#{appointment.nectar} units"
   td = "#{appointment.advisement} units"
   td = appointment.adv_accepted
+  / fixme change above line to % Accepted
+  td
+    - if appointment.adv_accepted
+      button Edit Advisement
+      button Overrule
+    - elsif appointment.adv_accepted == false
+      span style="color: red" Overruled
