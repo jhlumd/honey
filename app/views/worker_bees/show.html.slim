@@ -1,3 +1,6 @@
+h1 Bee ID Show Page
+= link_to  "Back to Index", worker_bees_path
+
 p
   strong Bee's Name: 
   = @worker_bee.name
@@ -5,3 +8,20 @@ p
 p
   strong Bee's Comb: 
   = @worker_bee.comb_id
+  / = link_to  "Change Comb", edit_worker_bee_path(@worker_bee)
+  / = link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+
+h2 This Bee's Appointments List
+
+table
+  tr
+    th ID
+    th ID-CombID
+    th Date
+    th PollenGlobs
+    th Nectar
+    th Advisement
+    th % Accepted
+
+  = render @worker_bee.appointments
+      

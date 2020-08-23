@@ -8,7 +8,14 @@ class WorkerBeesController < ApplicationController
   end
 
   def update
-  
+    @worker_bee = WorkerBee.find(params[:id])
+
+    if @worker_bee.update(worker_bee_params)
+      redirect_to @worker_bee
+    else
+      render @worker_bee
+      # fixme render for error?
+    end
   end
 
   private
