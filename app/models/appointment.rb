@@ -32,7 +32,7 @@ class Appointment < ApplicationRecord
     if nectar == 0 || nectar == nil
       return
     elsif nectar < 200 || nectar > 20000
-      errors.add(:nectar, "must be between 200 and 20,000 or 0")
+      errors.add(:nectar, "must either be 0 or be between 200 and 20,000")
     elsif nectar % 100 != 0
       errors.add(:nectar, "must be in 100 increments")
     end
