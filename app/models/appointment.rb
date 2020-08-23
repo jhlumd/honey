@@ -24,11 +24,11 @@ class Appointment < ApplicationRecord
   validates :advisement, numericality: { only_integer: true,
     greater_than_or_equal_to: 200, less_than_or_equal_to:20000,
     allow_nil: true }
-  validate :nectar_increment, :advisement_increment
+  validate :nectar_val, :advisement_increment
   validates :adv_accepted, inclusion: { in: [true, false],
     message: "must be either true or false" }
 
-  def nectar_increment
+  def nectar_val
     if nectar == 0 || nectar == nil
       return
     elsif nectar < 200 || nectar > 20000
