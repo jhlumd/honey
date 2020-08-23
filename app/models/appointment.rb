@@ -28,19 +28,20 @@ class Appointment < ApplicationRecord
   validates :adv_accepted, inclusion: { in: [true, false],
     message: "must be either true or false" }
 
-  def nectar_val
-    if nectar == 0 || nectar == nil
-      return
-    elsif nectar < 200 || nectar > 20000
-      errors.add(:nectar, "must either be 0 or be between 200 and 20,000")
-    elsif nectar % 100 != 0
-      errors.add(:nectar, "must be in 100 increments")
+  private
+    def nectar_val
+      if nectar == 0 || nectar == nil
+        return
+      elsif nectar < 200 || nectar > 20000
+        errors.add(:nectar, "must either be 0 or be between 200 and 20,000")
+      elsif nectar % 100 != 0
+        errors.add(:nectar, "must be in 100 increments")
+      end
     end
-  end
-  
-  def advisement_increment
-    unless advisement == nil || advisement % 100 == 0
-      errors.add(:advisement, "must be in 100 increments")
+    
+    def advisement_increment
+      unless advisement == nil || advisement % 100 == 0
+        errors.add(:advisement, "must be in 100 increments")
+      end
     end
-  end
 end
