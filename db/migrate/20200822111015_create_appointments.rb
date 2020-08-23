@@ -6,7 +6,7 @@ class CreateAppointments < ActiveRecord::Migration[5.1]
       t.decimal :pollen_globs, precision: 3, scale: 1
       t.integer :nectar, null: false
       t.integer :advisement
-      t.boolean :adv_accepted, null: false
+      t.boolean :adv_accepted
 
       t.timestamps
     end

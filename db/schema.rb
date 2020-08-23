@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20200822111015) do
     t.decimal "pollen_globs", precision: 3, scale: 1
     t.integer "nectar", null: false
     t.integer "advisement"
-    t.boolean "adv_accepted", null: false
+    t.boolean "adv_accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date"], name: "index_appointments_on_date"
