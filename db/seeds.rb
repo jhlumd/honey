@@ -55,7 +55,7 @@ num_combs.times do
         pollen_globs = rand(5.0..17.9).round(1)
       end
 
-      # Advisement - given every couple of weeks means 20% of the time
+      # Advisement - given every couple of weeks
       new_adv = nil
       if adv_days.include?(i) 
         new_adv = rand(2..200) * 100
