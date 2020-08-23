@@ -38,39 +38,34 @@ num_combs.times do
       pollen_globs: rand(5.0..17.9).round(1), nectar: active_adv,
       advisement: active_adv, adv_accepted: true)
 
-    pg_days = [rand(2..3), rand(5..6), rand(7..8), rand(10..11), rand(13..14)]
+    pg_days = [rand(2..3), 5, rand(7..8), rand(10..11), rand(13..14)]
     adv_days = [rand(4..8), rand(11..14)]
     for i in 1..14 do
       # Dates: To emulate 2-3 times a week, 20% of the time the next appt is
       # +2 days and +3 days 80%
-      d_to_add = 2
-      if rand() <= 0.8
-        d_to_add += 1
-      end
+      d_to_add = (rand() <= 0.8) ? 3 : 2
       date += d_to_add
 
       # PollenGlob measurement - about once weekly
-      pollen_globs = nil
-      if pg_days.include?(i) 
-        pollen_globs = rand(5.0..17.9).round(1)
-      end
+      pollen_globs = pg_days.include?(i) ? (rand(5.0..17.9).round(1)) : nil
 
       # Advisement - given every couple of weeks
-      new_adv = nil
-      if adv_days.include?(i) 
-        new_adv = rand(2..200) * 100
+      new_adv = adv_days.include?(i) ? (rand(2..200) * 100) : nil
+      # Update active_adv if there is a new_adv
+      unless new_adv.nil?
+        active_adv = new_adv
       end
-      active_adv = new_adv.nil? ? active_adv : new_adv
       
       # Nectar allowance is skipped 5-10% of the time.
-      nectar = active_adv
-      if rand() <= 0.075
-        nectar = 0
-      end
+      nectar = rand() <= 0.075 ? 0 : active_adv
+
+      # Advisements are accepted by default
+      # adv_accepted is nil when there is no new advisement
+      adv_accepted = new_adv.nil? ? nil : true
 
       Appointment.create(worker_bee_id: cur_bee.id, date: date,
         pollen_globs: pollen_globs, nectar: nectar, advisement: new_adv,
-        adv_accepted: nectar == active_adv)
+        adv_accepted: adv_accepted)
     end
   end
 end
