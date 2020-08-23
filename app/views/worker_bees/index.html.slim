@@ -1,6 +1,13 @@
-.center(style='text-align: center;')
-  / img(src='https://media.giphy.com/media/dcubXtnbck0RG/source.gif')
+h1 List of All Worker Bees
 
-  .worker-bees-combtainer
-    br
-    | May the odds bee ever in your favor 💅
+table
+  tr
+    th Name
+    th Comb
+
+  - @worker_bees.each do |bee|
+    tr
+      td = bee.name
+      td = bee.comb_id
+      td = link_to  "Show", worker_bee_path(bee)
+      

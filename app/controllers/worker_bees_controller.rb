@@ -1,10 +1,10 @@
 class WorkerBeesController < ApplicationController
   def index
-  
+    @worker_bees = WorkerBee.all
   end
 
   def show
-  
+    @worker_bee = WorkerBee.find(params[:id])
   end
 
   def update
