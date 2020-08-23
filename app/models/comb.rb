@@ -15,4 +15,5 @@ class Comb < ApplicationRecord
   validates :supervisor, presence: true
   validates :sweet_spot, presence: true,
     numericality: { greater_than_or_equal_to: 5.1, less_than_or_equal_to: 17.9 }
+    # Usually between 10.0 and 15.0, but not always
 end
