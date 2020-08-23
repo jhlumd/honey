@@ -8,7 +8,7 @@
 #  pollen_globs  :decimal(3, 1)
 #  nectar        :integer          not null
 #  advisement    :integer
-#  adv_accepted  :boolean          not null
+#  adv_accepted  :boolean
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
