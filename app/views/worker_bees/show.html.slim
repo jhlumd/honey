@@ -34,10 +34,6 @@ h2 Graph!!
 figure.highcharts-figure
   #container
 
-javascript:
-  drawGraph();
-
-
 h2 This Bee's Appointments List
 
 button.table-toggle-button onclick="toggleTable()"
@@ -56,3 +52,6 @@ button.table-toggle-button onclick="toggleTable()"
         th.hide-column % Accepted
         th Overrule
     = render @worker_bee.appointments
+
+javascript:
+  drawGraph();

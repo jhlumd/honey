@@ -5,6 +5,8 @@ class WorkerBeesController < ApplicationController
 
   def show
     @worker_bee = WorkerBee.find(params[:id])
+
+    gon.js_var = "Did it work?" # fixme
   end
 
   def update

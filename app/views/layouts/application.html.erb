@@ -3,6 +3,7 @@
   <head>
     <title>Honey by Jaehyuk Lee</title>
     <%= csrf_meta_tags %>
+    <%= Gon::Base.render_data %>
     <script src="https://code.highcharts.com/highcharts.src.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
