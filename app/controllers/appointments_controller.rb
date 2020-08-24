@@ -9,8 +9,8 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # DevNote: Decided that update just changes true/false status, not past nectar
-  #          or advisement amounts.
+  # DevNote: Decided that update just changes true/false (Accepted/Overruled)
+  #          status, not past nectar or advisement amounts.
 
   # private
   #   def appointment_params
