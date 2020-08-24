@@ -11,6 +11,7 @@ h1 Bee ID Show Page
 
   .comb-info
     strong Bee's Comb: 
+
     .comb-id
       = @worker_bee.comb_id
 
@@ -20,6 +21,13 @@ h1 Bee ID Show Page
 
     button.edit-toggle-button onclick="toggleEdit('bee', #{@worker_bee.id})"
       | Change comb assignment
+    
+  p
+    strong Comb Supervisor: 
+    = @worker_bee.comb.supervisor
+  p
+    strong Comb's Sweet Spot: 
+    = @worker_bee.comb.sweet_spot
 
 h2 This Bee's Appointments List
 
