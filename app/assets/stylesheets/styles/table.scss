@@ -1,11 +1,17 @@
-.appt-table {
+.appt-table-container {
   border: 1px solid blue;
+  // overflow: auto;
+  // max-height: 250px;
 
-  tr:nth-child(even) {
-    background: lightgray;
-  }
+  .appt-table {
+    thead {
+      background: darkgrey;
+    }
 
-  td {
+    tr:nth-child(even) {
+      background: lightgray;
+    }
+
     .hide {
       display: none;
     }

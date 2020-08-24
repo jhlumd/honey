@@ -1,13 +1,15 @@
 h1 List of All Worker Bees
 
-table.bee-table
-  tr
-    th ID-CombID
-    th Name
-    th 
+.bee-table-container
+  table.bee-table
+    thead
+      tr
+        th ID-CombID
+        th Name
+        th 
 
-  - @worker_bees.each do |bee|
-    tr
-      td = link_to  "#{bee.id}-C#{bee.comb_id}", worker_bee_path(bee)
-      td = bee.name
-      td = link_to  "See Details", worker_bee_path(bee)
+    - @worker_bees.each do |bee|
+      tr
+        td = link_to  "#{bee.id}-C#{bee.comb_id}", worker_bee_path(bee)
+        td = bee.name
+        td = link_to  "See Details", worker_bee_path(bee)

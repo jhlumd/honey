@@ -14,7 +14,7 @@ class WorkerBeesController < ApplicationController
       @worker_bee.errors.add(:comb_id, "Already assigned to this comb")
       # @worker_bee.errors[:base] << "Already assigned to this comb"
 
-      debugger
+      # debugger # fixme
       render 'show'
       return
     end
