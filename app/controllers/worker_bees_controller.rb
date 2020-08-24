@@ -13,8 +13,9 @@ class WorkerBeesController < ApplicationController
     if @worker_bee.update(worker_bee_params)
       redirect_to @worker_bee
     else
-      render @worker_bee
+      # fixme add errors
       # fixme render for error?
+      render @worker_bee
     end
   end
 

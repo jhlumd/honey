@@ -10,6 +10,9 @@ tr
   td
     - if appointment.adv_accepted
       button Edit Advisement
-      button Overrule
+      = form_with model: appointment do |f|
+        = f.hidden_field :appointment
+        / input type="hidden" name="appointment[appt_id]" value="#{appointment.id}"
+        = f.submit "Overrule DB!! #{appointment.id}"
     - elsif appointment.adv_accepted == false
       span style="color: red" Overruled
