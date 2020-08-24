@@ -22,7 +22,7 @@ class Appointment < ApplicationRecord
     less_than_or_equal_to: 17.9, allow_nil: true }
   validates :nectar, presence: true, numericality: { only_integer: true }
   validates :advisement, numericality: { only_integer: true,
-    greater_than_or_equal_to: 200, less_than_or_equal_to:20000,
+    greater_than_or_equal_to: 200, less_than_or_equal_to: 20000,
     allow_nil: true }
   validate :nectar_val, :advisement_increment
 
