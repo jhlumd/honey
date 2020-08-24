@@ -29,6 +29,17 @@ h1 Bee ID Show Page
     strong Comb's Sweet Spot: 
     = @worker_bee.comb.sweet_spot
 
+h2 Graph!!
+
+figure.highcharts-figure
+    #container
+    p.highcharts-description
+      | Chart showing stacked horizontal bars. This type of visualization is great for comparing data that accumulates up to a sum.
+
+javascript:
+  drawGraph();
+
+
 h2 This Bee's Appointments List
 
 button.table-toggle-button onclick="toggleTable()"
