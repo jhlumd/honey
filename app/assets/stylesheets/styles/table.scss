@@ -1,15 +1,15 @@
 .appt-table-container {
   border: 1px solid blue;
-  // overflow: auto;
+  // overflow-y: auto;
   // max-height: 250px;
 
   .appt-table {
     thead {
-      background: darkgrey;
+      background: darkkhaki;
     }
 
     tr:nth-child(even) {
-      background: lightgray;
+      background: palegoldenrod;
     }
 
     .hide {
