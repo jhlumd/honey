@@ -1,0 +1,13 @@
+.appt-table {
+  border: 1px solid blue;
+
+  tr:nth-child(even) {
+    background: lightgray;
+  }
+
+  td {
+    .hide {
+      display: none;
+    }
+  }
+}
