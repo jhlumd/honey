@@ -23,18 +23,19 @@ h1 Bee ID Show Page
 
 h2 This Bee's Appointments List
 
-button Regular View Mode
+button.table-toggle-button onclick="toggleTable()"
+  | Enhanced View Mode
 
 .appt-table-container
   table.appt-table
     thead
       tr
-        th ID
-        th ID-CombID
+        th.hide-column ID
+        th.hide-column ID-CombID
         th Date
         th PollenGlobs
         th Nectar
         th Advisement
-        th % Accepted
+        th.hide-column % Accepted
         th Overrule
     = render @worker_bee.appointments

@@ -1,11 +1,11 @@
 tr id="appt-#{appointment.id}"
-  td = @worker_bee.id
-  td = "#{@worker_bee.id}-C#{@worker_bee.comb_id}"
+  td.hide-column = @worker_bee.id
+  td.hide-column = "#{@worker_bee.id}-C#{@worker_bee.comb_id}"
   td = appointment.date
   td = appointment.pollen_globs ? "#{appointment.pollen_globs} p/g" : "n/a"
   td = "#{appointment.nectar} units"
   td = appointment.advisement ? "#{appointment.advisement} units" : "n/a"
-  td = appointment.adv_accepted
+  td.hide-column = appointment.adv_accepted
   / fixme change above line to % Accepted
   td
     - if appointment.adv_accepted
