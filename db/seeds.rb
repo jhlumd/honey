@@ -12,7 +12,7 @@ WorkerBee.destroy_all
 Appointment.destroy_all
 
 # --- Settings
-num_combs = 5   # Set number of Combs
+num_combs = 10   # Set number of Combs
 ss_min = 10.0   # Set min p/g SweetSpot
 ss_max = 15.0   # Set max p/g SweetSpot
 pop_min = 5     # Set min number of Bees in a Comb
