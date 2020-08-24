@@ -1,5 +1,7 @@
 h1 Bee ID Show Page
 
+= fa_icon "home"
+
 = link_to  "Back to Index", worker_bees_path
 
 .id-card id="bee-#{@worker_bee.id}"
@@ -33,4 +35,3 @@ table.appt-table
     th Overrule
 
   = render @worker_bee.appointments
-      

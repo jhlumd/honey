@@ -9,4 +9,4 @@ table
     tr
       td = link_to  "#{bee.id}-C#{bee.comb_id}", worker_bee_path(bee)
       td = bee.name
-      
+      td = link_to  "See Details", worker_bee_path(bee)
