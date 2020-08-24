@@ -18,7 +18,7 @@ h1 Bee ID Show Page
       = f.select :comb_id, options_from_collection_for_select(Comb.all, :id, :id, "#{@worker_bee.comb_id}")
       = f.submit "Submit Change!!"
 
-    button.toggle-button onclick="toggleEdit('bee', #{@worker_bee.id})"
+    button.edit-toggle-button onclick="toggleEdit('bee', #{@worker_bee.id})"
       | Change comb assignment
 
 h2 This Bee's Appointments List

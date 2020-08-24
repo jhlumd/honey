@@ -1,6 +1,6 @@
 function toggleEdit(type, id) {
   const section = document.getElementById(`${type}-${id}`);
-  const button = section.querySelector(".toggle-button");
+  const button = section.querySelector(".edit-toggle-button");
 
   section.querySelector(".edit-form").classList.toggle("hide");
 

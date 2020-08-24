@@ -14,7 +14,7 @@ tr id="appt-#{appointment.id}"
         = f.hidden_field :id
         = f.submit "Overrule!!"
 
-      button.toggle-button onclick="toggleEdit('appt', #{appointment.id})"
+      button.edit-toggle-button onclick="toggleEdit('appt', #{appointment.id})"
         | Edit Advisement
 
     - elsif appointment.adv_accepted == false
