@@ -27,3 +27,5 @@
 13. Metrics to show for WorkerBee ID page/card: highest p/g collected, average, lowest, total nectar consumed this month, etc.
 
 14. Adding comb_id column for Appointment to associate Appointment belongs_to Comb as well. to have record of ID-CombID over time.
+
+15. Double DB queries for "overrule" button = Appointment update

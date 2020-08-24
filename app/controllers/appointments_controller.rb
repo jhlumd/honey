@@ -5,13 +5,15 @@ class AppointmentsController < ApplicationController
     if appointment.update(adv_accepted: false)
       redirect_to worker_bee_path(appointment.worker_bee_id)
     else
-      # fixme add errors
       render worker_bee_path(appointment.worker_bee_id)
     end
   end
 
+  # DevNote: Decided that update just changes true/false status, not past nectar
+  #          or advisement amounts.
+
   # private
   #   def appointment_params
-  #     params.require(:appointment).permit(:appt_id)
+  #     params.require(:appointment).permit(:nectar, :advisement)
   #   end
 end

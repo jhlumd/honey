@@ -2,17 +2,18 @@ tr
   td = @worker_bee.id
   td = "#{@worker_bee.id}-C#{@worker_bee.comb_id}"
   td = appointment.date
-  td = "#{appointment.pollen_globs} p/g"
+  td = appointment.pollen_globs ? "#{appointment.pollen_globs} p/g" : "n/a"
   td = "#{appointment.nectar} units"
-  td = "#{appointment.advisement} units"
+  td = appointment.advisement ? "#{appointment.advisement} units" : "n/a"
   td = appointment.adv_accepted
   / fixme change above line to % Accepted
   td
     - if appointment.adv_accepted
       button Edit Advisement
       = form_with model: appointment do |f|
-        = f.hidden_field :appointment
-        / input type="hidden" name="appointment[appt_id]" value="#{appointment.id}"
-        = f.submit "Overrule DB!! #{appointment.id}"
+        = f.hidden_field :id
+        = f.submit "Overrule!!"
     - elsif appointment.adv_accepted == false
       span style="color: red" Overruled
+
+/ fixme errors for appointment.adv_accepted update fails
