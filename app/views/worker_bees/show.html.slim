@@ -8,8 +8,11 @@ p
 p
   strong Bee's Comb: 
   = @worker_bee.comb_id
-  / = link_to  "Change Comb", edit_worker_bee_path(@worker_bee)
-  / = link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+  button Change comb assignment
+  = form_with model: @worker_bee do |f|
+    = f.select :comb_id, options_from_collection_for_select(Comb.all, :id, :id, "#{@worker_bee.comb_id}")
+    = f.submit "Submit Change!!"
+    / fixme show submit only if current comb_id is different from selected
 
 h2 This Bee's Appointments List
 
