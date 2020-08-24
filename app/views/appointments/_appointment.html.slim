@@ -9,13 +9,13 @@ tr id="appt-#{appointment.id}"
   / fixme change above line to % Accepted
   td
     - if appointment.adv_accepted
+
+      = form_with model: appointment, html: { class: "edit-form hide" } do |f|
+        = f.hidden_field :id
+        = f.submit "Overrule!!"
+
       button.toggle-button onclick="toggleEdit('appt', #{appointment.id})"
         | Edit Advisement
-      .edit-form.hide
-        = form_with model: appointment do |f|
-          = f.hidden_field :id
-          = f.submit "Overrule!!"
-        button onclick="toggleEdit('appt', #{appointment.id})"
-          | Cancel
+
     - elsif appointment.adv_accepted == false
       span style="color: red" Overruled

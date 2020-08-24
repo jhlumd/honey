@@ -10,10 +10,19 @@ class WorkerBeesController < ApplicationController
   def update
     @worker_bee = WorkerBee.find(params[:id])
 
+    if worker_bee_params[:comb_id].to_i == @worker_bee.comb_id
+      @worker_bee.errors.add(:comb_id, "Already assigned to this comb")
+      # @worker_bee.errors[:base] << "Already assigned to this comb"
+
+      debugger
+      render 'show'
+      return
+    end
+
     if @worker_bee.update(worker_bee_params)
       redirect_to @worker_bee
     else
-      render @worker_bee
+      render 'show'
     end
   end
 

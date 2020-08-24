@@ -1,18 +1,22 @@
 h1 Bee ID Show Page
 = link_to  "Back to Index", worker_bees_path
 
-p
-  strong Bee's Name: 
-  = @worker_bee.name
+.id-card id="bee-#{@worker_bee.id}"
+  p
+    strong Bee's Name: 
+    = @worker_bee.name
 
-p
-  strong Bee's Comb: 
-  = @worker_bee.comb_id
-  button Change comb assignment
-  = form_with model: @worker_bee do |f|
-    = f.select :comb_id, options_from_collection_for_select(Comb.all, :id, :id, "#{@worker_bee.comb_id}")
-    = f.submit "Submit Change!!"
-    / fixme show submit only if current comb_id is different from selected
+  .comb-info
+    strong Bee's Comb: 
+    .comb-id
+      = @worker_bee.comb_id
+
+    = form_with model: @worker_bee, html: { class: "edit-form hide" } do |f|
+      = f.select :comb_id, options_from_collection_for_select(Comb.all, :id, :id, "#{@worker_bee.comb_id}")
+      = f.submit "Submit Change!!"
+
+    button.toggle-button onclick="toggleEdit('bee', #{@worker_bee.id})"
+      | Change comb assignment
 
 h2 This Bee's Appointments List
 
