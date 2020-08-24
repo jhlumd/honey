@@ -19,4 +19,13 @@ class WorkerBee < ApplicationRecord
   
   validates :name, presence: true
   validates :comb, presence: { message: "affiliation required" }
+
+  before_validation :verify_different_comb, on: :update
+
+  private
+    def verify_different_comb
+      if comb_id == params[:comb_id].to_i
+      
+      end
+    end
 end

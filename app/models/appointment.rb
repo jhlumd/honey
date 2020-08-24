@@ -16,15 +16,17 @@
 class Appointment < ApplicationRecord
   belongs_to :worker_bee
 
-  validates :worker_bee, presence: { message: "must be linked" }
-  validates :date, presence: true
-  validates :pollen_globs, numericality: { greater_than_or_equal_to: 5,
-    less_than_or_equal_to: 17.9, allow_nil: true }
-  validates :nectar, presence: true, numericality: { only_integer: true }
-  validates :advisement, numericality: { only_integer: true,
-    greater_than_or_equal_to: 200, less_than_or_equal_to: 20000,
-    allow_nil: true }
-  validate :nectar_val, :advisement_increment
+  validates :worker_bee,  presence: { message: "must be linked" }
+  validates :date,        presence: true
+  validates :pollen_globs,
+    numericality: { greater_than_or_equal_to: 5, less_than_or_equal_to: 17.9,
+      allow_nil: true }
+  validates :nectar,      presence: true,
+    numericality: { only_integer: true }
+  validates :advisement,
+    numericality: { only_integer: true, greater_than_or_equal_to: 200,
+      less_than_or_equal_to: 20000, allow_nil: true }
+  validate :nectar_val,   :advisement_increment
 
   private
     def nectar_val

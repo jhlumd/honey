@@ -5,7 +5,7 @@ class AppointmentsController < ApplicationController
     if appointment.update(adv_accepted: false)
       redirect_to worker_bee_path(appointment.worker_bee_id)
     else
-      render worker_bee_path(appointment.worker_bee_id)
+      render worker_bee_path(appointment.worker_bee_id), status: 422
     end
   end
 

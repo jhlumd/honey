@@ -17,14 +17,14 @@ class WorkerBeesController < ApplicationController
       # @worker_bee.errors[:base] << "Already assigned to this comb"
 
       # debugger # fixme
-      render 'show'
+      render :show, status: 422
       return
     end
 
     if @worker_bee.update(worker_bee_params)
       redirect_to @worker_bee
     else
-      render 'show'
+      render :show, status: 422
     end
   end
 
