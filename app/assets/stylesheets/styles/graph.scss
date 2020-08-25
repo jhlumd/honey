@@ -1,8 +1,11 @@
-.highcharts-figure {
+section.graph {
   border: 1px solid blue;
-  width: 900px;
 
-  #graph-container {
-    height: 600px;
+  .highcharts-figure {
+    width: 900px;
+  
+    #graph-container {
+      height: 600px;
+    }
   }
 }

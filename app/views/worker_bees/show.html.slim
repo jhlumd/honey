@@ -1,10 +1,11 @@
-h1 Bee ID Show Page
+section.header
+  h1 Bee ID Show Page
 
-= fa_icon "home"
+  = fa_icon "home"
 
-= link_to  "Back to Index", worker_bees_path
+  = link_to  "Back to Index", worker_bees_path
 
-.id-card id="bee-#{@worker_bee.id}"
+section.id-card id="bee-#{@worker_bee.id}"
   p
     strong Bee's Name: 
     = @worker_bee.name
@@ -34,17 +35,21 @@ h1 Bee ID Show Page
     strong Comb's Sweet Spot: 
     = @worker_bee.comb.sweet_spot
 
-h2 Graph!!
 
-figure.highcharts-figure
-  #graph-container
+/ --- Graph Section --- /
+section.graph
+  h2 Graph!!
 
-h2 This Bee's Appointments List
+  figure.highcharts-figure
+    #graph-container
 
-button.table-toggle-button onclick="toggleTable()"
-  | Enhanced View Mode
+/ --- Table Section --- /
+section.table
+  h2 This Bee's Appointments List
 
-.appt-table-container
+  button.table-toggle-button onclick="toggleTable()"
+    | Enhanced View Mode
+
   table.appt-table
     thead
       tr
