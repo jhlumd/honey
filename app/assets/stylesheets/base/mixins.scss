@@ -1,0 +1,23 @@
+@mixin table-style($stripes-color, $hover-color) {
+  width: 100%;
+  border: 1px solid #EBEBEB;
+  text-align: center;
+
+  thead tr,
+  tr:nth-child(even) {
+    background: $stripes-color;
+  }
+
+  tr:hover {
+    background: $hover-color;
+  }
+
+  th {
+    font-weight: 600;
+    padding: 0.5rem;
+  }
+
+  td {
+    padding: 0.5rem;
+  }
+}

@@ -1,18 +1,7 @@
 .bee-table-container {
+  border: 1px solid blue;
 
   .bee-table {
-    border: 1px solid blue;
-
-    thead {
-      background: darkkhaki;
-    }
-  
-    tr:nth-child(even) {
-      background: palegoldenrod;
-    }
-
-    td {
-      text-align: center;
-    }
+    @include table-style(lemonchiffon, khaki);
   }
 }

@@ -4,36 +4,11 @@
   // max-height: 250px;
 
   .appt-table {
-    width: 800px;
-    border-collapse: collapse;
-    border: 1px solid #EBEBEB;
-    margin: 10px auto;
-    text-align: center;
-    width: 100%;
+    margin: 1rem auto; // fixme
+    @include table-style(lemonchiffon, khaki); //(#f8f8f8, #f1f7ff);
 
-    thead tr,
-    tr:nth-child(even) {
-      background: #f8f8f8;
-    }
-
-    tr:hover {
-      background: #f1f7ff;
-    }
-
-    th {
-      font-weight: 600;
-      padding: 0.5rem;
-    }
-
-    td {
-      padding: 0.5rem;
-
-      .hide {
-        display: none;
-      }
-    }
-
-    .hide-column {
+    .hide,
+    .collapse-col {
       display: none;
     }
   }

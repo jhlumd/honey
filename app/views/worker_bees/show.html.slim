@@ -48,13 +48,13 @@ button.table-toggle-button onclick="toggleTable()"
   table.appt-table
     thead
       tr
-        th.hide-column ID
-        th.hide-column ID-CombID
+        th.collapse-col ID
+        th.collapse-col ID-CombID
         th Date
         th PollenGlobs
         th Nectar
         th Advisement
-        th.hide-column % Accepted
+        th.collapse-col % Accepted
         th Overrule
     = render @worker_bee.appointments
 

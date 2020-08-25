@@ -8,9 +8,9 @@ function toggleTable() {
       : "Regular View Mode";
 
   for (const row of trs) {
-    row.children[0].classList.toggle("hide-column");
-    row.children[1].classList.toggle("hide-column");
-    row.children[6].classList.toggle("hide-column");
-    row.children[7].classList.toggle("hide-column");
+    row.children[0].classList.toggle("collapse-col");
+    row.children[1].classList.toggle("collapse-col");
+    row.children[6].classList.toggle("collapse-col");
+    row.children[7].classList.toggle("collapse-col");
   }
 }
