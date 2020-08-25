@@ -1,9 +1,19 @@
 .id-card {
   border: 1px solid blue;
 
-  .comb-info {
-    .hide {
-      display: none;
+  table {
+    td.good-perf {
+      background-color: limegreen;
+    }
+
+    td.bad-perf {
+      background-color: tomato;
+    }
+
+    .comb-info {
+      .hide {
+        display: none;
+      }
     }
   }
 }

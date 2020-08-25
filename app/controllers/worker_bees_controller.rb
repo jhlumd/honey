@@ -11,7 +11,10 @@ class WorkerBeesController < ApplicationController
   def show
     @worker_bee = WorkerBee.find(params[:id])
     @combs = Comb.all # need combs for comb reassignment select dropdown
-    gon.push({ appointments: @worker_bee.appointments })
+
+    gon.push({
+      appointments: @worker_bee.appointments
+    })
 
     bee_ne = @worker_bee.appointments.sum(:nectar)
     bee_pg = @worker_bee.appointments.sum(:pollen_globs)
@@ -29,6 +32,11 @@ class WorkerBeesController < ApplicationController
     comb_ne_pg = (comb_ne / comb_pg).round()
     vs_comb = bee_ne_pg - comb_ne_pg
     vs_comb = "+#{vs_comb}" if vs_comb > 0
+
+    gon.push({
+      vs_hive: vs_hive,
+      vs_comb: vs_comb
+    })
 
     @bee_metrics = {
       days_since_last: (DateTime.current.to_date - @worker_bee.appointments.first.date).to_s[0..-3],

@@ -1,6 +1,9 @@
 function onShowPageLoad() {
-  const { appointments } = gon;
+  const { appointments, vs_hive, vs_comb } = gon;
   appointments.reverse();
+
+  // Color the section of the ID card green or red according to performance
+  colorMetrics(vs_hive, vs_comb);
 
   // Info needed for graph
   const nectarDataForGraph = [];
