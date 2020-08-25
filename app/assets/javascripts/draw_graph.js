@@ -1,69 +1,81 @@
 function drawGraph() {
+  const { appointments } = gon;
+  appointments.reverse();
+
+  const dates = [];
+  const nectars = [];
+  const pollenGlobs = [];
+
+  for (const appt of appointments) {
+    const { date, nectar, pollen_globs } = appt;
+    const jDate = new Date(date);
+    dates.push(jDate.toDateString());
+    nectars.push(nectar);
+    pollenGlobs.push(parseFloat(pollen_globs));
+    // parseFloat() rather than Number() to get NaN values from null rather than 0.
+    // Highchart treats NaN same as null, as missing values
+  }
+
   Highcharts.chart("graph-container", {
     chart: {
       zoomType: "xy",
     },
+
     title: {
-      text: "Average Monthly Temperature and Rainfall in Tokyo",
+      text: undefined,
     },
-    subtitle: {
-      text: "Source: WorldClimate.com",
-    },
+
     xAxis: [
       {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
+        categories: dates,
         crosshair: true,
       },
     ],
+
     yAxis: [
       {
-        // Primary yAxis
-        labels: {
-          format: "{value}°C",
-          style: {
-            color: Highcharts.getOptions().colors[1],
-          },
-        },
+        // Nectar yAxis
         title: {
-          text: "Temperature",
-          style: {
-            color: Highcharts.getOptions().colors[1],
-          },
-        },
-      },
-      {
-        // Secondary yAxis
-        title: {
-          text: "Rainfall",
+          text: "Nectar",
           style: {
             color: Highcharts.getOptions().colors[0],
           },
         },
         labels: {
-          format: "{value} mm",
+          format: "{value} units",
           style: {
             color: Highcharts.getOptions().colors[0],
           },
         },
         opposite: true,
       },
+      {
+        // PollenGlobs yAxis
+        labels: {
+          format: "{value} p/g",
+          style: {
+            color: Highcharts.getOptions().colors[1],
+          },
+        },
+        title: {
+          text: "PollenGlobs",
+          style: {
+            color: Highcharts.getOptions().colors[1],
+          },
+        },
+      },
     ],
+
     tooltip: {
       shared: true,
     },
+
+    plotOptions: {
+      series: {
+        connectNulls: true,
+      },
+    },
+
     legend: {
       layout: "vertical",
       align: "left",
@@ -72,53 +84,48 @@ function drawGraph() {
       y: 100,
       floating: true,
       backgroundColor:
-        Highcharts.defaultOptions.legend.backgroundColor || // theme
+        Highcharts.defaultOptions.legend.backgroundColor ||
         "rgba(255,255,255,0.25)",
     },
+
     series: [
       {
-        name: "Rainfall",
+        name: "Nectar Allowance",
         type: "column",
         yAxis: 1,
-        data: [
-          49.9,
-          71.5,
-          106.4,
-          129.2,
-          144.0,
-          176.0,
-          135.6,
-          148.5,
-          216.4,
-          194.1,
-          95.6,
-          54.4,
-        ],
+        data: nectars,
         tooltip: {
-          valueSuffix: " mm",
+          valueSuffix: " units",
         },
       },
       {
-        name: "Temperature",
+        name: "PollenGlobs Collected",
         type: "spline",
-        data: [
-          7.0,
-          6.9,
-          9.5,
-          14.5,
-          18.2,
-          21.5,
-          25.2,
-          26.5,
-          23.3,
-          18.3,
-          13.9,
-          9.6,
-        ],
+        data: pollenGlobs,
         tooltip: {
-          valueSuffix: "°C",
+          valueSuffix: " p/g",
         },
       },
     ],
+
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "printChart",
+            "separator",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadPDF",
+            "downloadSVG",
+            "separator",
+            "downloadCSV",
+            "downloadXLS",
+            // "viewData",
+            // "openInCloud",
+          ],
+        },
+      },
+    },
   });
 }
