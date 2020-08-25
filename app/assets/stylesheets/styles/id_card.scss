@@ -1,19 +1,61 @@
 .id-card {
-  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1.5rem 0 1.5rem 0;
+  border-radius: 1rem;
+  background-color: papayawhip;
+  box-shadow: 0.5rem 0.5rem 1.5rem #888888;
 
   table {
+    border: 1px solid #EBEBEB;
+
+    tr td:first-child {
+      text-align: right;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    tr td:last-child {
+      text-align: left;
+      width: 220px;
+    }
+
+    td {
+      padding: 0.3rem 1rem 0.3rem 1rem;
+    }
+
     .good-perf {
       background-color: limegreen;
+      border-radius: 2rem;
     }
 
     .bad-perf {
       background-color: tomato;
+      border-radius: 2rem;
     }
 
     .comb-info {
+      display: flex;
+      @include button-style;
+
+      .comb-id {
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        margin-right: 1rem;
+      }
+
       .hide {
         display: none;
       }
+    }
+
+    .form-notice {
+      color: mediumseagreen;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
     }
   }
 }

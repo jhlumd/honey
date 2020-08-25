@@ -12,7 +12,7 @@ section.header {
 
   .header-left {
     width: 300px;
-    @include button-style
+    @include link-style
   }
 
   .page-title {

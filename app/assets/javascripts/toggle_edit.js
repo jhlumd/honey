@@ -9,7 +9,7 @@ function toggleEdit(type, id) {
       button.textContent === "Cancel" ? "Edit Advisement" : "Cancel";
   } else if (type === "bee") {
     button.textContent =
-      button.textContent === "Cancel" ? "Change comb assignment" : "Cancel";
+      button.textContent === "Cancel" ? "Change comb" : "Cancel";
     section.querySelector(".comb-id").classList.toggle("hide");
   }
 }

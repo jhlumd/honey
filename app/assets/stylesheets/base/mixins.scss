@@ -30,7 +30,7 @@ $xlarge-fz: 28px;
   }
 }
 
-@mixin button-style {
+@mixin link-style {
   a {
     color: $grey;
     text-decoration: none;
@@ -41,5 +41,21 @@ $xlarge-fz: 28px;
   a:hover {
     color: $lightgrey;
     background-color: darkkhaki;
+  }
+}
+
+@mixin button-style {
+  button, input[type="submit"] {
+    background-color: $lightgrey;
+    border: none;
+    border-radius: 1rem;
+    text-transform: uppercase;
+  }
+
+  button:hover,
+  input[type="submit"]:hover {
+    color: $lightgrey;
+    background-color: darkkhaki;
+    box-shadow: 0.5rem 0.5rem 1.5rem #888888;
   }
 }

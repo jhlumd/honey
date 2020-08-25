@@ -11,8 +11,6 @@ section.header
 
 / --- ID Card --- /
 section.id-card id="bee-#{@worker_bee.id}"
-  h2 Bee ID Card
-
   table
     tbody
       tr
@@ -28,7 +26,7 @@ section.id-card id="bee-#{@worker_bee.id}"
         td Nectar Consumed: 
         td = "#{@bee_metrics[:bee_ne]} units"
       tr
-        td Nectar Consumption per PollenGlob Collected: 
+        td Efficiency Performance: 
         td = "#{@bee_metrics[:bee_ne_pg]} units per p/g"
       tr
         td Performance vs Hive Avg: 
@@ -36,7 +34,7 @@ section.id-card id="bee-#{@worker_bee.id}"
       tr
         td Performance vs Comb Avg: 
         td.vs-comb = "#{@bee_metrics[:vs_comb]} units per p/g"
-      tr.comb-info
+      tr
         td Comb Affiliation: 
         td = render "worker_bees/form"
       tr
