@@ -1,5 +1,10 @@
 section.home-header
-  h1 List of All Worker Bees
+  h1 Title!!!
+
+section.hive-info
+  div = "List of All #{@hive_info[:population]} Worker Bees in #{@hive_info[:num_combs]} Combs in the Hive"
+  div = "Total PollenGlobs Collected: #{@hive_info[:total_pg]} p/g"
+  div = "Total Nectar Consumption: #{@hive_info[:total_nectar]} units"
 
 section.bee-table-container
   table.bee-table

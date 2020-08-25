@@ -1,11 +1,18 @@
 class WorkerBeesController < ApplicationController
   def index
     @worker_bees = WorkerBee.all.includes(:appointments)
+    @hive_info = {
+      population: @worker_bees.count,
+      num_combs: Comb.count,
+      total_pg: Appointment.sum(:pollen_globs),
+      total_nectar: Appointment.sum(:nectar)
+    }
   end
 
   def show
     @worker_bee = WorkerBee.find(params[:id])
     gon.push({ appointments: @worker_bee.appointments })
+    @combs = Comb.all
   end
 
   def update
