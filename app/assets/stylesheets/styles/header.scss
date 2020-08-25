@@ -1,3 +1,28 @@
 section.header {
-  border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: $large-fz;
+  background-color: palegoldenrod;
+  border-radius: 1rem;
+
+  div {
+    padding: 1rem;
+  }
+
+  .header-left {
+    width: 300px;
+    @include button-style
+  }
+
+  .page-title {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+  }
 }

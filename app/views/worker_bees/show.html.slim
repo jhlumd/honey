@@ -1,11 +1,13 @@
 / --- Header --- /
 section.header
-  h1 Bee ID Show Page
+  .header-left
+    = fa_icon "home"
+    = link_to  " Back to Index", worker_bees_path
 
-  = fa_icon "home"
+  .page-title Worker Bee Details
 
-  = link_to  "Back to Index", worker_bees_path
-
+  .header-right
+    = fa_icon "forumbee"
 
 / --- ID Card --- /
 section.id-card id="bee-#{@worker_bee.id}"
