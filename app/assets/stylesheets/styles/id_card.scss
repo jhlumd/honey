@@ -20,7 +20,7 @@
 
     tr td:last-child {
       text-align: left;
-      width: 220px;
+      width: 200px;
     }
 
     td {
@@ -37,25 +37,40 @@
       border-radius: 2rem;
     }
 
-    .comb-info {
-      display: flex;
-      @include button-style;
+    .comb-edit-row {
+      height: 50px;
 
-      .comb-id {
-        padding: 0.5rem 1rem 0.5rem 1rem;
-        margin-right: 1rem;
+      .comb-info {
+        display: flex;
+        justify-content: space-between;
+        @include button-style(khaki, peachpuff, $grey);
+
+        .comb-id {
+          padding: 0.6rem 0;
+          margin-right: 1.5rem;
+        }
+
+        .edit-form {
+          display: flex;
+
+          select {
+            padding: 0.4rem 0;
+            margin-right: 1.5rem;
+          }
+        }
+
+        .hide {
+          display: none;
+        }
       }
 
-      .hide {
-        display: none;
+      .form-notice {
+        padding-top: 2px;
+        color: mediumseagreen;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
       }
-    }
-
-    .form-notice {
-      color: mediumseagreen;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
     }
   }
 }

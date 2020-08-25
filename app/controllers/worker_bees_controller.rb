@@ -54,7 +54,7 @@ class WorkerBeesController < ApplicationController
 
     if @worker_bee.update(worker_bee_params)
       flash[:notice] = worker_bee_params[:comb_id] == old_comb_id ?
-        "Already assigned to this comb" : "Successfully reassigned!"
+        "Already in this comb" : "Reassigned!"
 
       redirect_to @worker_bee
     else

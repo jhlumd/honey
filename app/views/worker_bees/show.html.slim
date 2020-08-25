@@ -29,12 +29,12 @@ section.id-card id="bee-#{@worker_bee.id}"
         td Efficiency Performance: 
         td = "#{@bee_metrics[:bee_ne_pg]} units per p/g"
       tr
-        td Performance vs Hive Avg: 
+        td vs Hive Avg: 
         td.vs-hive = "#{@bee_metrics[:vs_hive]} units per p/g"
       tr
-        td Performance vs Comb Avg: 
+        td vs Comb Avg: 
         td.vs-comb = "#{@bee_metrics[:vs_comb]} units per p/g"
-      tr
+      tr.comb-edit-row
         td Comb Affiliation: 
         td = render "worker_bees/form"
       tr

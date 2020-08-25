@@ -44,18 +44,40 @@ $xlarge-fz: 28px;
   }
 }
 
-@mixin button-style {
-  button, input[type="submit"] {
-    background-color: $lightgrey;
+@mixin button-style($color,$hover-color, $text-color) {
+  button,
+  input[type="submit"] {
+    display: inline-block;
     border: none;
-    border-radius: 1rem;
+    padding: 0.5rem 0.3rem;
+    margin: 0;
+    text-decoration: none;
+    background: $color;
+    font-size: 0.7rem;
+    color: $text-color;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out,
+      transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0.5rem;
     text-transform: uppercase;
   }
 
   button:hover,
   input[type="submit"]:hover {
-    color: $lightgrey;
-    background-color: darkkhaki;
-    box-shadow: 0.5rem 0.5rem 1.5rem #888888;
+    background: $hover-color;
+    box-shadow: 0.2rem 0.2rem 1.5rem #888888;
+  }
+
+  button:focus,
+  input[type="submit"]:focus {
+    outline: none;
+  }
+
+  button:active,
+  input[type="submit"]:active {
+    transform: scale(0.99);
   }
 }
