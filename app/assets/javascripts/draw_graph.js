@@ -2,16 +2,14 @@ function drawGraph() {
   const { appointments } = gon;
   appointments.reverse();
 
-  const dates = [];
   const nectars = [];
   const pollenGlobs = [];
 
   for (const appt of appointments) {
     const { date, nectar, pollen_globs } = appt;
-    const jDate = new Date(date);
-    dates.push(jDate.toDateString());
-    nectars.push(nectar);
-    pollenGlobs.push(parseFloat(pollen_globs));
+    const unixDate = (new Date(date)).getTime();
+    nectars.push([unixDate, nectar]);
+    pollenGlobs.push([unixDate, parseFloat(pollen_globs)]);
     // parseFloat() rather than Number() to get NaN values from null rather than 0.
     // Highchart treats NaN same as null, as missing values
   }
@@ -40,14 +38,13 @@ function drawGraph() {
 
     xAxis: [
       {
-        categories: dates,
+        type: "datetime",
         crosshair: true,
       },
     ],
 
     yAxis: [
       {
-        // PollenGlobs yAxis
         labels: {
           format: "{value} p/g",
           style: {
@@ -63,7 +60,6 @@ function drawGraph() {
         opposite: true,
       },
       {
-        // Nectar yAxis
         title: {
           text: "Nectar",
           style: {
@@ -81,14 +77,13 @@ function drawGraph() {
 
     tooltip: {
       shared: true,
+      // xDateFormat: "%A, %b %e",
     },
 
     legend: {
       layout: "vertical",
-      align: "center",
-      // x: 120,
+      // align: "center",
       verticalAlign: "top",
-      // y: 100,
       // floating: true,
       backgroundColor:
         Highcharts.defaultOptions.legend.backgroundColor ||
