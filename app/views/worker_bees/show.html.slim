@@ -17,21 +17,24 @@ section.id-card id="bee-#{@worker_bee.id}"
         td Name: 
         td = @worker_bee.name
       tr
+        td Days Since Last Report: 
+        td = "#{@bee_metrics[:days_since_last]} day(s)"
+      tr
         td PollenGlobs Collected: 
-        td = "#{@bee_metrics[:pg_sum]} p/g"
+        td = "#{@bee_metrics[:bee_pg]} p/g"
       tr
         td Nectar Consumed: 
-        td = "#{@bee_metrics[:nectar_sum]} units"
+        td = "#{@bee_metrics[:bee_ne]} units"
       tr
-        td Days Since Last Report: 
-        td = "#{@bee_metrics[:days_since_last]} days"
+        td Nectar Consumption per PollenGlob Collected: 
+        td = "#{@bee_metrics[:bee_ne_pg]} units per p/g"
       tr
         td Performance vs Hive Avg: 
-        td = "+#{@bee_metrics[:vs_hive]} units per p/g"
+        td = "#{@bee_metrics[:vs_hive]} units per p/g"
         / fixme: if statement for class styling: red if +, green if -
       tr
         td Performance vs Comb Avg: 
-        td = "+#{@bee_metrics[:vs_comb]} units per p/g"
+        td = "#{@bee_metrics[:vs_comb]} units per p/g"
         / fixme: if statement for class styling: red if +, green if -
       tr.comb-info
         td Comb Affiliation: 

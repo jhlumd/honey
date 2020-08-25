@@ -43,6 +43,8 @@ function drawGraph(nectarData, pollenGlobsData) {
           },
         },
         opposite: true,
+        min: 5,
+        max: 18,
       },
       {
         title: {
@@ -57,6 +59,8 @@ function drawGraph(nectarData, pollenGlobsData) {
             color: nectarColor,
           },
         },
+        min: 200,
+        max: 20000,
       },
     ],
 
