@@ -16,9 +16,22 @@ function drawGraph() {
     // Highchart treats NaN same as null, as missing values
   }
 
+  const nectarColor = Highcharts.getOptions().colors[0];//3
+  const pgColor = Highcharts.getOptions().colors[1];//4
+  // 0: blue      
+  // 1: black     
+  // 2: green     
+  // 4: purple    line
+  // 5: pink      line
+  // 7: green     line
+  // 8: red       line
+  // 3: orange    column
+  // 6: yellow    column
+  // 9: honeydew  column
+
   Highcharts.chart("graph-container", {
     chart: {
-      zoomType: "xy",
+      zoomType: "x",
     },
 
     title: {
@@ -34,33 +47,33 @@ function drawGraph() {
 
     yAxis: [
       {
-        // Nectar yAxis
-        title: {
-          text: "Nectar",
-          style: {
-            color: Highcharts.getOptions().colors[0],
-          },
-        },
-        labels: {
-          format: "{value} units",
-          style: {
-            color: Highcharts.getOptions().colors[0],
-          },
-        },
-        opposite: true,
-      },
-      {
         // PollenGlobs yAxis
         labels: {
           format: "{value} p/g",
           style: {
-            color: Highcharts.getOptions().colors[1],
+            color: pgColor,
           },
         },
         title: {
           text: "PollenGlobs",
           style: {
-            color: Highcharts.getOptions().colors[1],
+            color: pgColor,
+          },
+        },
+        opposite: true,
+      },
+      {
+        // Nectar yAxis
+        title: {
+          text: "Nectar",
+          style: {
+            color: nectarColor,
+          },
+        },
+        labels: {
+          format: "{value} units",
+          style: {
+            color: nectarColor,
           },
         },
       },
@@ -68,15 +81,6 @@ function drawGraph() {
 
     tooltip: {
       shared: true,
-    },
-
-    plotOptions: {
-      series: {
-        connectNulls: true,
-      },
-      column: {
-        borderRadius: 5,
-      },
     },
 
     legend: {
@@ -100,6 +104,8 @@ function drawGraph() {
         tooltip: {
           valueSuffix: " units",
         },
+        borderRadius: 5,
+        color: nectarColor,
       },
       {
         name: "PollenGlobs Collected",
@@ -108,6 +114,8 @@ function drawGraph() {
         tooltip: {
           valueSuffix: " p/g",
         },
+        connectNulls: true,
+        color: pgColor,
       },
     ],
 
