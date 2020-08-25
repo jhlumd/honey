@@ -5,8 +5,7 @@ tr id="appt-#{appointment.id}"
   td = appointment.pollen_globs ? "#{appointment.pollen_globs} p/g" : "n/a"
   td = "#{appointment.nectar} units"
   td = appointment.advisement ? "#{appointment.advisement} units" : "n/a"
-  td.collapse-col = appointment.adv_accepted
-  / fixme change above line to % Accepted
+  td.percent-accepted.collapse-col
   td
     - if appointment.adv_accepted
 

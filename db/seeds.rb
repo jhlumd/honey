@@ -56,8 +56,16 @@ num_combs.times do
         active_adv = new_adv
       end
       
-      # Nectar allowance is skipped 5-10% of the time.
-      nectar = rand() <= 0.075 ? 0 : active_adv
+      # Nectar allowance is 0 (skipped) 7.5% of the time, same as the active
+      # adv 72.5% of the time, and random 20% of the time.
+      nectarRand = rand()
+      if nectarRand <= 0.075
+        nectar = 0
+      elsif nectarRand <= 0.8
+        nectar = active_adv
+      else
+        nectar = rand(2..200) * 100
+      end
 
       # Advisements are accepted by default
       # adv_accepted is nil when there is no new advisement

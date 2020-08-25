@@ -1,24 +1,9 @@
-function drawGraph() {
-  const { appointments } = gon;
-  appointments.reverse();
-
-  const nectars = [];
-  const pollenGlobs = [];
-
-  for (const appt of appointments) {
-    const { date, nectar, pollen_globs } = appt;
-    const unixDate = (new Date(date)).getTime();
-    nectars.push([unixDate, nectar]);
-    pollenGlobs.push([unixDate, parseFloat(pollen_globs)]);
-    // parseFloat() rather than Number() to get NaN values from null rather than 0.
-    // Highchart treats NaN same as null, as missing values
-  }
-
+function drawGraph(nectarData, pollenGlobsData) {
   const nectarColor = Highcharts.getOptions().colors[6];
   const pgColor = Highcharts.getOptions().colors[1];
-  // 0: blue      
-  // 1: black     
-  // 2: green     
+  // 0: blue
+  // 1: black
+  // 2: green
   // 3: orange    column
   // 6: yellow    column
   // 9: honeydew  column
@@ -77,7 +62,6 @@ function drawGraph() {
 
     tooltip: {
       shared: true,
-      // xDateFormat: "%A, %b %e",
     },
 
     legend: {
@@ -95,7 +79,7 @@ function drawGraph() {
         name: "Nectar Allowance",
         type: "column",
         yAxis: 1,
-        data: nectars,
+        data: nectarData,
         tooltip: {
           valueSuffix: " units",
         },
@@ -105,7 +89,7 @@ function drawGraph() {
       {
         name: "PollenGlobs Collected",
         type: "spline",
-        data: pollenGlobs,
+        data: pollenGlobsData,
         tooltip: {
           valueSuffix: " p/g",
         },
