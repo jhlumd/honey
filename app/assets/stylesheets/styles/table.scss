@@ -5,7 +5,9 @@
 
   .appt-table {
     margin: 1rem auto; // fixme
-    @include table-style(lemonchiffon, khaki); //(#f8f8f8, #f1f7ff);
+    @include table-style(lemonchiffon, khaki);
+    // (#f8f8f8, #f1f7ff);
+    // (lemonchiffon, khaki);
 
     .hide,
     .collapse-col {

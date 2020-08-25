@@ -16,18 +16,18 @@ function drawGraph() {
     // Highchart treats NaN same as null, as missing values
   }
 
-  const nectarColor = Highcharts.getOptions().colors[0];//3
-  const pgColor = Highcharts.getOptions().colors[1];//4
+  const nectarColor = Highcharts.getOptions().colors[6];
+  const pgColor = Highcharts.getOptions().colors[1];
   // 0: blue      
   // 1: black     
   // 2: green     
+  // 3: orange    column
+  // 6: yellow    column
+  // 9: honeydew  column
   // 4: purple    line
   // 5: pink      line
   // 7: green     line
   // 8: red       line
-  // 3: orange    column
-  // 6: yellow    column
-  // 9: honeydew  column
 
   Highcharts.chart("graph-container", {
     chart: {
