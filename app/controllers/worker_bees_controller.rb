@@ -1,6 +1,6 @@
 class WorkerBeesController < ApplicationController
   def index
-    @worker_bees = WorkerBee.all
+    @worker_bees = WorkerBee.all.includes(:appointments)
   end
 
   def show

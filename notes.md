@@ -29,3 +29,6 @@
 14. Adding comb_id column for Appointment to associate Appointment belongs_to Comb as well. to have record of ID-CombID over time.
 
 15. Double DB queries for "overrule" button = Appointment update
+
+
+16. eager loading prevent N+1 query
