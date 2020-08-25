@@ -1,3 +1,4 @@
+/ --- Header --- /
 section.header
   h1 Bee ID Show Page
 
@@ -5,9 +6,10 @@ section.header
 
   = link_to  "Back to Index", worker_bees_path
 
+
+/ --- ID Card --- /
 section.id-card id="bee-#{@worker_bee.id}"
-  p
-    strong Bee's Name: 
+  p Bee's Name: 
     = @worker_bee.name
 
   .comb-info
@@ -36,14 +38,15 @@ section.id-card id="bee-#{@worker_bee.id}"
     = @worker_bee.comb.sweet_spot
 
 
-/ --- Graph Section --- /
+/ --- Graph --- /
 section.graph
   h2 Graph!!
 
   figure.highcharts-figure
     #graph-container
 
-/ --- Table Section --- /
+
+/ --- Table --- /
 section.table
   h2 This Bee's Appointments List
 

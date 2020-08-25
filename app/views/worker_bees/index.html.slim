@@ -1,11 +1,27 @@
+/ --- Header --- /
 section.home-header
-  h1 Title!!!
+  h1 Hive Cluster!!!
 
+
+/ --- Hive Info --- /
 section.hive-info
-  div = "List of All #{@worker_bees.count} Worker Bees in #{@hive_info[:num_combs]} Combs in the Hive"
-  div = "Total PollenGlobs Collected: #{@hive_info[:total_pg]} p/g"
-  div = "Total Nectar Consumption: #{@hive_info[:total_nectar]} units"
+  table
+    tbody
+      tr
+        td Total Population: 
+        td = @worker_bees.count
+      tr
+        td Combs in Hive: 
+        td = @hive_info[:num_combs]
+      tr
+        td Total PollenGlobs Collected: 
+        td = @hive_info[:total_pg]
+      tr
+        td Total Nectar Consumption: 
+        td = @hive_info[:total_nectar]
 
+
+/ --- Bees Index --- /
 section.bee-table-container
   table.bee-table
     thead
