@@ -3,7 +3,7 @@ section.table {
   // overflow-y: auto;
   // max-height: 250px;
 
-  table.appt-table {
+  table {
     margin: 1rem auto; // fixme
     @include table-style(lemonchiffon, khaki);
     // (#f8f8f8, #f1f7ff);

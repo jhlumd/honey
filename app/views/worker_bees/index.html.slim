@@ -11,24 +11,27 @@ section.hive-info
         td Total Population: 
         td = @worker_bees.count
       tr
-        td Combs in Hive: 
-        td = @hive_info[:num_combs]
+        td Number of Combs: 
+        td = @hive_metrics[:num_combs]
       tr
         td Total PollenGlobs Collected: 
-        td = @hive_info[:total_pg]
+        td = "#{@hive_metrics[:total_pg]} p/g"
       tr
         td Total Nectar Consumption: 
-        td = @hive_info[:total_nectar]
+        td = "#{(@hive_metrics[:total_nectar] / 1000000.0).round(2)} million units"
+      tr
+        td Average Nectar Cost per PollenGlob
+        td = "#{(@hive_metrics[:total_nectar] / @hive_metrics[:total_pg]).round()} units per p/g"
 
 
 / --- Bees Index --- /
-section.bee-table-container
-  table.bee-table
+section.bees-table-container
+  table
     thead
       tr
         th ID-CombID
         th Name
-        th Last Active
+        th Last Reported
         th 
 
     - @worker_bees.each do |bee|

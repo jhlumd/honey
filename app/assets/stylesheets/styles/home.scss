@@ -4,12 +4,16 @@ section.home-header {
 
 section.hive-info {
   border: 1px solid blue;
+
+  table {
+    @include table-style(cyan, green);
+  }
 }
 
-section.bee-table-container {
+section.bees-table-container {
   border: 1px solid blue;
 
-  .bee-table {
+  table {
     @include table-style(lemonchiffon, khaki);
   }
 }

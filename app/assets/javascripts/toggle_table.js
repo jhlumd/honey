@@ -1,6 +1,8 @@
 function toggleTable() {
   const button = document.querySelector(".table-toggle-button");
-  const trs = document.getElementsByTagName("tr");
+  const trs = document
+    .querySelector("section.table")
+    .getElementsByTagName("tr");
 
   button.textContent =
     button.textContent === "Regular View Mode"

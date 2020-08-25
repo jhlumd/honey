@@ -9,33 +9,39 @@ section.header
 
 / --- ID Card --- /
 section.id-card id="bee-#{@worker_bee.id}"
-  p Bee's Name: 
-    = @worker_bee.name
+  h2 Bee ID Card
 
-  .comb-info
-    strong Bee's Comb: 
-
-    .comb-id
-      = @worker_bee.comb_id
-
-    = form_with model: @worker_bee, html: { class: "edit-form hide" } do |f|
-      = f.select :comb_id, options_from_collection_for_select(@combs, :id, :id, "#{@worker_bee.comb_id}")
-      = f.submit "Submit Change!!"
-
-    button.edit-toggle-button onclick="toggleEdit('bee', #{@worker_bee.id})"
-      | Change comb assignment
-    
-    - if flash[:notice]
-      .notice = flash[:notice]
-    - if flash[:error]
-      .error = flash[:error]
-    
-  p
-    strong Comb Supervisor: 
-    = @worker_bee.comb.supervisor
-  p
-    strong Comb's Sweet Spot: 
-    = @worker_bee.comb.sweet_spot
+  table
+    tbody
+      tr
+        td Name: 
+        td = @worker_bee.name
+      tr
+        td PollenGlobs Collected: 
+        td = "#{@bee_metrics[:pg_sum]} p/g"
+      tr
+        td Nectar Consumed: 
+        td = "#{@bee_metrics[:nectar_sum]} units"
+      tr
+        td Days Since Last Report: 
+        td = "#{@bee_metrics[:days_since_last]} days"
+      tr
+        td Performance vs Hive Avg: 
+        td = "+#{@bee_metrics[:vs_hive]} units per p/g"
+        / fixme: if statement for class styling: red if +, green if -
+      tr
+        td Performance vs Comb Avg: 
+        td = "+#{@bee_metrics[:vs_comb]} units per p/g"
+        / fixme: if statement for class styling: red if +, green if -
+      tr.comb-info
+        td Comb Affiliation: 
+        td = render "worker_bees/form"
+      tr
+        td Comb's Sweet Spot: 
+        td = "#{@worker_bee.comb.sweet_spot} p/g"
+      tr
+        td Comb Supervisor: 
+        td = @worker_bee.comb.supervisor
 
 
 / --- Graph --- /
@@ -53,7 +59,7 @@ section.table
   button.table-toggle-button onclick="toggleTable()"
     | Enhanced View Mode
 
-  table.appt-table
+  table
     thead
       tr
         th.collapse-col ID
@@ -66,5 +72,7 @@ section.table
         th Overrule
     = render @worker_bee.appointments
 
+
+/ --- Script on Page Load --- /
 javascript:
   onShowPageLoad();
