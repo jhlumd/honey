@@ -2,7 +2,6 @@ class WorkerBeesController < ApplicationController
   def index
     @worker_bees = WorkerBee.all.includes(:appointments)
     @hive_info = {
-      population: @worker_bees.count,
       num_combs: Comb.count,
       total_pg: Appointment.sum(:pollen_globs),
       total_nectar: Appointment.sum(:nectar)
