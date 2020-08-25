@@ -1,3 +1,5 @@
+// Variables
+
 $grey: #323232;
 $lightgrey: #f2f2f2;
 $font-stack: Arial, sans-serif;
@@ -7,6 +9,7 @@ $xlarge-fz: 28px;
 
 // Set box model to border-box.
 // Based on css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
