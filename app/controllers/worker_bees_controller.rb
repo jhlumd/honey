@@ -11,19 +11,15 @@ class WorkerBeesController < ApplicationController
 
   def update
     @worker_bee = WorkerBee.find(params[:id])
-
-    if worker_bee_params[:comb_id].to_i == @worker_bee.comb_id
-      @worker_bee.errors.add(:comb_id, "Already assigned to this comb")
-      # @worker_bee.errors[:base] << "Already assigned to this comb"
-
-      # debugger # fixme
-      render :show, status: 422
-      return
-    end
+    old_comb_id = @worker_bee.comb_id.to_s
 
     if @worker_bee.update(worker_bee_params)
+      flash[:notice] = worker_bee_params[:comb_id] == old_comb_id ?
+        "Already assigned to this comb" : "Successfully reassigned!"
+
       redirect_to @worker_bee
     else
+      flash.now[:error] = "Could not assign to comb"
       render :show, status: 422
     end
   end

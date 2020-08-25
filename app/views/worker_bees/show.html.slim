@@ -16,15 +16,16 @@ h1 Bee ID Show Page
       = @worker_bee.comb_id
 
     = form_with model: @worker_bee, html: { class: "edit-form hide" } do |f|
-      - if @worker_bee.errors.any?
-        ul.errors
-          -@worker_bee.errors.full_messages.each do |msg|
-            li = msg
       = f.select :comb_id, options_from_collection_for_select(Comb.all, :id, :id, "#{@worker_bee.comb_id}")
       = f.submit "Submit Change!!"
 
     button.edit-toggle-button onclick="toggleEdit('bee', #{@worker_bee.id})"
       | Change comb assignment
+    
+    - if flash[:notice]
+      .notice = flash[:notice]
+    - if flash[:error]
+      .error = flash[:error]
     
   p
     strong Comb Supervisor: 
