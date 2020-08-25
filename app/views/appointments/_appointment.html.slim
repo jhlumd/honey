@@ -6,7 +6,7 @@ tr id="appt-#{appointment.id}"
   td = "#{appointment.nectar} units"
   td = appointment.advisement ? "#{appointment.advisement} units" : "n/a"
   td.percent-accepted.collapse-col
-  td
+  td.overrule-col
     - if appointment.adv_accepted
 
       = form_with model: appointment, html: { class: "edit-form hide" } do |f|
@@ -17,4 +17,4 @@ tr id="appt-#{appointment.id}"
         | Edit Advisement
 
     - elsif appointment.adv_accepted == false
-      span style="color: red" Overruled
+      span Overruled

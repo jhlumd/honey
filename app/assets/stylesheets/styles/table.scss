@@ -9,6 +9,15 @@
     // (#f8f8f8, #f1f7ff);
     // (lemonchiffon, khaki);
 
+    .overrule-col {
+      display: flex;
+      justify-content: center;
+
+      span {
+        color: red;
+      }
+    }
+
     .hide,
     .collapse-col {
       display: none;
