@@ -4,16 +4,29 @@
   // max-height: 250px;
 
   .appt-table {
-    thead {
-      background: darkkhaki;
+    width: 800px;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+
+    thead tr,
+    tr:nth-child(even) {
+      background: #f8f8f8;
     }
 
-    tr:nth-child(even) {
-      background: palegoldenrod;
+    tr:hover {
+      background: #f1f7ff;
+    }
+
+    th {
+      font-weight: 600;
+      padding: 0.5rem; // fixme em vs rem
     }
 
     td {
-      text-align: center;
+      padding: 0.5rem; // fixme em vs rem 
 
       .hide {
         display: none;
