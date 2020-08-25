@@ -1,9 +1,7 @@
 section.graph {
   padding: 2rem;
   margin: 1rem 0 1rem 0;
-  border-radius: 1rem;
-  background-color: papayawhip;
-  box-shadow: 0.5rem 0.5rem 1.5rem #888888;
+  @include section-style;
 
   .highcharts-figure {
     width: 900px;
