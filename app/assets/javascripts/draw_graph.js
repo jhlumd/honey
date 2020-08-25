@@ -74,15 +74,18 @@ function drawGraph() {
       series: {
         connectNulls: true,
       },
+      column: {
+        borderRadius: 5,
+      },
     },
 
     legend: {
       layout: "vertical",
-      align: "left",
-      x: 120,
+      align: "center",
+      // x: 120,
       verticalAlign: "top",
-      y: 100,
-      floating: true,
+      // y: 100,
+      // floating: true,
       backgroundColor:
         Highcharts.defaultOptions.legend.backgroundColor ||
         "rgba(255,255,255,0.25)",

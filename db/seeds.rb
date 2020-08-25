@@ -33,7 +33,7 @@ num_combs.times do
     # --- Create Appointments (PollenGlob, Nectar, Advisement)
     # Do first appt manually
     date = Date.new(2020, 7, 15)
-    active_adv = 600
+    active_adv = rand(6..90) * 100
     Appointment.create(worker_bee_id: cur_bee.id, date: date,
       pollen_globs: rand(5.0..17.9).round(1), nectar: active_adv,
       advisement: active_adv, adv_accepted: true)
