@@ -1,5 +1,5 @@
 function drawGraph() {
-  Highcharts.chart("container", {
+  Highcharts.chart("graph-container", {
     chart: {
       type: "bar",
     },
