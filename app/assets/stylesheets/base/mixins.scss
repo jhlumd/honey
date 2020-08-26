@@ -19,41 +19,79 @@
   }
 }
 
-@mixin button-style($color,$hover-color, $text-color) {
+@mixin button-style {
   button,
   input[type="submit"] {
-    display: inline-block;
-    border: none;
-    padding: 0.5rem 0.3rem;
-    margin: 0;
-    text-decoration: none;
-    background: $color;
-    font-size: 0.7rem;
-    color: $text-color;
     cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out,
-      transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
     border-radius: 0.5rem;
-    text-transform: uppercase;
+    // border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
   }
 
   button:hover,
   input[type="submit"]:hover {
-    background: $hover-color;
-    box-shadow: 0.2rem 0.2rem 1.5rem #888888;
-  }
-
-  button:focus,
-  input[type="submit"]:focus {
-    outline: none;
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
   }
 
   button:active,
   input[type="submit"]:active {
-    transform: scale(0.99);
+    box-shadow: inset 1px 1px 1px #DFDFDF;
+  }
+
+  // Blue buttons
+  button.blue,
+  input[type="submit"].blue {
+    color: white;
+    background: #4C8FFB;
+    border: 1px #3079ED solid;
+    box-shadow: inset 0 1px 0 #80B0FB;
+  }
+
+  button.blue:hover,
+  input[type="submit"].blue:hover {
+    border: 1px #2F5BB7 solid;
+    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+    background: #3F83F1;
+  }
+
+  button.blue:active,
+  input[type="submit"].blue:active {
+    box-shadow: inset 0 2px 5px #2370FE;
+  }
+
+  // Orange buttons
+  button.orange,
+  input[type="submit"].orange {
+    color: white;
+    border: 1px solid #FB8F3D;
+    // background: linear-gradient(top, #FDA251, #FB8F3D);
+    // background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+    // background: -ms-linear-gradient(top, #FDA251, #FB8F3D);
+    background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+  }
+
+  button.orange:hover,
+  input[type="submit"].orange:hover {
+    border: 1px solid #EB5200;
+    // background: linear-gradient(top, #FD924C, #F9760B);
+    // background: -moz-linear-gradient(top, #FD924C, #F9760B);
+    // background: -ms-linear-gradient(top, #FD924C, #F9760B);
+    background: -webkit-linear-gradient(top, #FD924C, #F9760B);
+    box-shadow: 0 1px #EFEFEF;
+  }
+
+  button.orange:active,
+  input[type="submit"].orange:active {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
   }
 }
 

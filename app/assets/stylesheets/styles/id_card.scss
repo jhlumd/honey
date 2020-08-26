@@ -15,7 +15,7 @@ section.id-card {
 
     tr td:last-child {
       text-align: left;
-      width: 200px;
+      width: 220px;
     }
 
     td {
@@ -38,7 +38,7 @@ section.id-card {
       .comb-info {
         display: flex;
         justify-content: space-between;
-        @include button-style(khaki, peachpuff, $grey);
+        @include button-style;
 
         .comb-id {
           padding: 0.6rem 0;

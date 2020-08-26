@@ -4,7 +4,7 @@
 
   = form_with model: @worker_bee, html: { class: "edit-form hide" } do |f|
     = f.select :comb_id, options_from_collection_for_select(@combs, :id, :id, "#{@worker_bee.comb_id}")
-    = f.submit "Submit"
+    = f.submit "Submit", { class: "blue" }
 
   button.edit-toggle-button onclick="toggleEdit('bee', #{@worker_bee.id})"
     | Change comb

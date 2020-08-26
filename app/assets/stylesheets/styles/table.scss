@@ -5,11 +5,11 @@ section.table {
   padding: 1.5rem;
   margin: 1rem 0 2rem 0;
   @include section-style;
-  @include button-style(khaki, peachpuff, $grey);
+  @include button-style;
 
   .table-toggle-button {
     margin-bottom: 0.7rem;
-    width: 420px;
+    width: 320px;
   }
 
   table {
@@ -17,10 +17,12 @@ section.table {
 
     .overrule-col {
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
+      width: 160px;
 
       span {
         color: tomato;
+        font-weight: bold;
       }
     }
 
