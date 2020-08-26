@@ -8,7 +8,7 @@
     @include section-style(1rem);
     position: -webkit-sticky;
     position: sticky;
-    top: 2rem;
+    top: 78px;
     align-self: flex-start;
     
     display: flex;
@@ -16,7 +16,6 @@
     align-items: center;
 
     h2 {
-      // text-transform: uppercase;
       font-weight: bold;
       font-size: $large-fz;
     }
