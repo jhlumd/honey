@@ -1,19 +1,19 @@
-section.home-header {
-  border: 1px solid blue;
-}
+#main {
+  display: flex;
 
-section.hive-info {
-  border: 1px solid blue;
-
-  table {
-    @include table-style(cyan, green);
+  section.hive-info {
+    border: 1px solid blue;
+  
+    table {
+      @include small-table-style;
+    }
   }
-}
-
-section.bees-table-container {
-  border: 1px solid blue;
-
-  table {
-    @include table-style(lemonchiffon, khaki);
+  
+  section.bees-table-container {
+    border: 1px solid blue;
+  
+    table {
+      @include table-style(lemonchiffon, khaki);
+    }
   }
 }

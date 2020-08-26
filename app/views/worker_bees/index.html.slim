@@ -1,42 +1,50 @@
 / --- Header --- /
-section.home-header
-  h1 Your Hive Overview!!!
+section.header
+  .header-left
+    = fa_icon "home"
+
+  .page-title Welcome
+
+  .header-right
+    = fa_icon "forumbee"
+
+#main
+  / --- Hive Info --- /
+  section.hive-info
+    h2 Hive Info
+
+    table
+      tbody
+        tr
+          td Total Population: 
+          td = @worker_bees.count
+        tr
+          td Number of Combs: 
+          td = @hive_metrics[:num_combs]
+        tr
+          td Total PollenGlobs Collected: 
+          td = "#{@hive_metrics[:total_pg]} p/g"
+        tr
+          td Total Nectar Consumption: 
+          td = "#{(@hive_metrics[:total_nectar] / 1000000.0).round(2)} million units"
+        tr
+          td Average Nectar Cost per PollenGlob
+          td = "#{(@hive_metrics[:total_nectar] / @hive_metrics[:total_pg]).round()} units per p/g"
 
 
-/ --- Hive Info --- /
-section.hive-info
-  table
-    tbody
-      tr
-        td Total Population: 
-        td = @worker_bees.count
-      tr
-        td Number of Combs: 
-        td = @hive_metrics[:num_combs]
-      tr
-        td Total PollenGlobs Collected: 
-        td = "#{@hive_metrics[:total_pg]} p/g"
-      tr
-        td Total Nectar Consumption: 
-        td = "#{(@hive_metrics[:total_nectar] / 1000000.0).round(2)} million units"
-      tr
-        td Average Nectar Cost per PollenGlob
-        td = "#{(@hive_metrics[:total_nectar] / @hive_metrics[:total_pg]).round()} units per p/g"
+  / --- Bees Index --- /
+  section.bees-table-container
+    table
+      thead
+        tr
+          th ID-CombID
+          th Name
+          th Last Reported
+          th 
 
-
-/ --- Bees Index --- /
-section.bees-table-container
-  table
-    thead
-      tr
-        th ID-CombID
-        th Name
-        th Last Reported
-        th 
-
-    - @worker_bees.each do |bee|
-      tr
-        td = "#{bee.id}-C#{bee.comb_id}"
-        td = "#{bee.name}"
-        td = "#{bee.appointments.first.date}"
-        td = link_to  "See Details", worker_bee_path(bee)
+      - @worker_bees.each do |bee|
+        tr
+          td = "#{bee.id}-C#{bee.comb_id}"
+          td = "#{bee.name}"
+          td = "#{bee.appointments.first.date}"
+          td = link_to  "See Details", worker_bee_path(bee)

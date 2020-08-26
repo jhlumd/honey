@@ -4,22 +4,10 @@ section.id-card {
   @include section-style;
 
   table {
-    border: 2px solid #EBEBEB;
-
-    tr td:first-child {
-      text-align: right;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
+    @include small-table-style;
 
     tr td:last-child {
-      text-align: left;
       width: 210px;
-    }
-
-    td {
-      padding: 0.3rem 1rem 0.3rem 1rem;
     }
 
     .good-perf {

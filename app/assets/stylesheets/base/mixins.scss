@@ -154,3 +154,26 @@
     padding: 0.5rem;
   }
 }
+
+@mixin small-table-style {
+  border: 2px solid #EBEBEB;
+
+  tr td:first-child {
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  tr td:last-child {
+    text-align: left;
+  }
+
+  td {
+    padding: 0.3rem 1rem 0.3rem 1rem;
+  }
+
+  tr:hover {
+    background: #444444;
+  }
+}
