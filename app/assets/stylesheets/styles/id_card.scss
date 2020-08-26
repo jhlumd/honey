@@ -11,12 +11,14 @@ section.id-card {
 
     .good-perf {
       background-color: limegreen;
-      border-radius: 2rem;
+      border-radius: 1rem;
+      text-align: center !important;
     }
 
     .bad-perf {
       background-color: tomato;
-      border-radius: 2rem;
+      border-radius: 1rem;
+      text-align: center !important;
     }
 
     .comb-edit-row {
