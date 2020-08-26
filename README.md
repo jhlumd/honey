@@ -10,7 +10,7 @@ I hope you have as much fun looking through and playing around with the program 
 * [Initial Thoughts and Decisions](#initial-thoughts-and-decisions)
   * [Models](#models)
   * [Settings for Seeds](#settings-for-seeds)
-  * ["% Accepted"](#percent-accepted)
+  * ["% Accepted"](#-accepted)
 
 ## Demo Gifs and Screenshots
 
@@ -77,7 +77,7 @@ The seeds are random by follows the ranges/parameters given in the instructions.
 * “There is a strong correlation between Nectar intake and PollenGlobs collected.”
 * “If a WorkerBee's PollenGlobs drop below a particular Comb's SweetSpot, an Advisement will likely increase their Nectar allowance.”
 
-### % Accepted
+### "% Accepted"
 
 I made several assumptions regarding the instructions I didn't completely understand to complete the project.
 
