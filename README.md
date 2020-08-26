@@ -7,7 +7,7 @@ I hope you have as much fun looking through and playing around with the program 
 ## Table of contents
 
 * [Demo Gifs and Screenshots](#demo-gifs-and-screenshots)
-* [Settings for Seeds](#settings-for-seeds)
+* [Seeds](#seeds)
 * [Initial Thoughts and Decisions](#initial-thoughts-and-decisions)
   * [Models](#models)
   * ["Overruled" and "% Accepted"](#overruled-and--accepted)
@@ -38,14 +38,35 @@ I hope you have as much fun looking through and playing around with the program 
 
 ![index ss][index_page]
 
-## Settings for Seeds
+## Seeds
 
 You can apply a couple of settings for the seeds to be generated.
 
-* `num_combs`: sets the number of different Combs in your Hive. Currently set to 12.
-* `pop_min` and `pop_max`: sets range for the randomly generated number of WorkerBees to belong to each Comb. Currently set to (9..15). So you'll get about 144 bees.
+* `num_combs` sets the number of different Combs in your Hive. Currently set to 12.
+* `pop_min` and `pop_max` sets range for the randomly generated number of WorkerBees to belong to each Comb. Currently set to (9..15). So you'll get about 144 bees.
+* 15 "appointments" are generated for each WorkerBee (appointments will be explained later).
 
-The seeds are random but follows the ranges/parameters given in the instructions. However, the correlation between some of the data are not simulated. Such as,
+The seeds are random but follows the guidelines given in the instructions.
+
+* `pollen_globs`
+  * Measured about once weekly
+  * range: (5.0..17.9)
+  * increment: 0.1
+* `nectar`
+  * Given 2 to 3 times a week
+  * increment: 100
+  * is 0 7.75% of the time
+  * matches the currently active `advisement` amount 72.5% of the time
+  * is random within range: (200..20000) 20% of the time
+* `advisement`
+  * Given once about every 2 weeks
+  * range: (200..20000)
+  * increment: 100
+* `sweet_spot`
+  * range: (10.0..15.0)
+  * increment: 0.1
+
+However, the correlation between some of the data are not simulated. Such as:
 
 * “There is a strong correlation between Nectar intake and PollenGlobs collected.”
 * “If a WorkerBee's PollenGlobs drop below a particular Comb's SweetSpot, an Advisement will likely increase their Nectar allowance.”
