@@ -1,9 +1,5 @@
 # <img src="./public/favicon.ico" alt="Bee Icon" width="55" align="center"> Honey — A Rails app for managing your Hive
 
->I hope you have as much fun looking through and playing around with the it as I had putting it together!
->
->-Jae
-
 ## Table of contents
 
 * [Demo Gifs and Screenshots](#demo-gifs-and-screenshots)
