@@ -1,7 +1,6 @@
 section.graph {
-  padding: 1.5rem;
   margin: 1rem 0;
-  @include section-style;
+  @include section-style(1.5rem);
 
   .highcharts-figure {
     width: 900px;

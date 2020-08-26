@@ -5,11 +5,11 @@
   justify-content: space-evenly;
 
   section.hive-info {
-    border: 1px solid blue;
     position: -webkit-sticky;
     position: sticky;
     top: 2rem;
     align-self: flex-start;
+    @include section-style(1rem);
   
     table {
       @include small-table-style;
@@ -17,7 +17,7 @@
   }
   
   section.bees-table-container {
-    border: 1px solid blue;
+    @include section-style(0);
     @include link-style(5px 10px, 0.5rem);
   
     table {

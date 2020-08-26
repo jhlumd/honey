@@ -2,9 +2,8 @@ section.table {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
   margin: 1rem 0 2rem 0;
-  @include section-style;
+  @include section-style(1.5rem);
   @include button-style;
 
   .table-toggle-button {
