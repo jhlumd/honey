@@ -12,16 +12,14 @@ WorkerBee.destroy_all
 Appointment.destroy_all
 
 # --- Settings
-num_combs = 10   # Set number of Combs
-ss_min = 10.0   # Set min p/g SweetSpot
-ss_max = 15.0   # Set max p/g SweetSpot
-pop_min = 5     # Set min number of Bees in a Comb
-pop_max = 10    # Set max number of Bees in a Comb
+num_combs = 12  # Set number of Combs
+pop_min = 9     # Set min number of Bees in a Comb
+pop_max = 15    # Set max number of Bees in a Comb
 
 # --- Create Combs
 num_combs.times do
   supervisor = Faker::Name.first_name
-  sweet_spot = rand(ss_min..ss_max).round(1)
+  sweet_spot = rand(10.0..15.0).round(1)
   cur_comb = Comb.create(supervisor: supervisor, sweet_spot: sweet_spot)
 
   # --- Create WorkerBees
