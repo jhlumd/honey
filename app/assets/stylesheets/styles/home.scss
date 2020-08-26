@@ -1,8 +1,15 @@
 #main {
+  width: 100%;
+  margin-top: 1.5rem;
   display: flex;
+  justify-content: space-evenly;
 
   section.hive-info {
     border: 1px solid blue;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
   
     table {
       @include small-table-style;
@@ -11,6 +18,7 @@
   
   section.bees-table-container {
     border: 1px solid blue;
+    @include link-style(5px 10px, 0.5rem);
   
     table {
       @include table-style(lemonchiffon, khaki);

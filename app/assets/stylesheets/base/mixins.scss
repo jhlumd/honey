@@ -4,16 +4,14 @@
   box-shadow: 0.5rem 0.5rem 1.5rem #888888;
 }
 
-@mixin link-style {
+@mixin link-style($padding, $border-rad) {
   a {
     text-decoration: none;
     color: #444444;
     background: #F3F3F3;
     border: 1px #DADADA solid;
-    // padding: 5px 10px;
-    // border-radius: 2px;
-    padding: 1rem;
-    border-radius: 1rem;
+    padding: $padding;
+    border-radius: $border-rad;
     font-weight: bold;
     font-size: 9pt;
     outline: none;
@@ -171,9 +169,5 @@
 
   td {
     padding: 0.3rem 1rem 0.3rem 1rem;
-  }
-
-  tr:hover {
-    background: #444444;
   }
 }
