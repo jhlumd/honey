@@ -22,11 +22,12 @@
   
     table {
       margin-top: 0.5rem;
-      @include small-table-style;
+      @include small-table-style(0.7rem 1rem);
     }
   }
   
   section.bees-table-container {
+    margin-bottom: 3rem;
     @include section-style(0);
     @include link-style(5px 10px, 0.5rem);
   

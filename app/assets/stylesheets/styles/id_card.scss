@@ -3,7 +3,7 @@ section.id-card {
   @include section-style(1rem);
 
   table {
-    @include small-table-style;
+    @include small-table-style(0.3rem 1rem);
 
     tr td:last-child {
       width: 210px;

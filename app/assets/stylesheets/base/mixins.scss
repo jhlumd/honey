@@ -154,7 +154,7 @@
   }
 }
 
-@mixin small-table-style {
+@mixin small-table-style($cell-padding) {
   border: 2px solid #EBEBEB;
 
   tr td:first-child {
@@ -169,6 +169,6 @@
   }
 
   td {
-    padding: 0.3rem 1rem 0.3rem 1rem;
+    padding: $cell-padding;
   }
 }
