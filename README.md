@@ -10,8 +10,10 @@
 * [Seeds](#seeds)
 * [Initial Thoughts and Decisions](#initial-thoughts-and-decisions)
   * [Models](#models)
+    * [Limitations of My Approach](#limitations-of-my-approach)
   * ["Overruled" and "% Accepted"](#overruled-and--accepted)
 * [Features](#features)
+* [Final Thoughts](#final-thoughts)
 
 ## Demo Gifs and Screenshots
 
@@ -89,14 +91,16 @@ My first thought was to create separate Models for each of Nectar, PollenGlob, a
 * `advisement`
 * `adv_accepted`, which is `nil` when there is no `advisement`. It keeps track of whether the `advisement` was "Accepted" or "Overruled". (To be discussed more later)
 
+#### WorkerBee and Comb
+
+Instructions describe a "unique_id" for each WorkerBee for each Comb they have been in or are currently active in (i.e., 123-C5, 123-C2). When I first considered Models for `WorkerBee` and `Comb`, I wasn't sure how I would record this. I considered a Model for `CombMembership` to join the `WorkerBee` and `Comb` Models. However, for the initial implementation, I decided to stick to the simple "belongs_to/has_many" association between `WorkerBee` and `Comb`.
+
+#### Limitations of My Approach
+
 Some notes about the limitations of my approach:
 
 * This way of modeling the data assumes that every `pollen_globs` measurement and `advisement` is given on a `date` that `nectar` is given. This is how the data looks in the example given, so I decided it was acceptable.
-* Instructions mention a "unique_id" for each WorkerBee for each Comb they have been in or are currently active in. My current implemntation of `Appointment` keeps track of the associated WorkerBee but not the Comb at the time of the `Appointment`. I considered a joins table for Comb "membership" of WorkerBees over time, but have not implemented this.
-
-#### WorkerBee and Comb
-
-When I first considered Models for `WorkerBee` and `Comb`, I wasn't sure how I would record `unique_id`'s changes over time (i.e., 123-C5, 123-C2) for each `WorkerBee`. As mentioned above, I considered a Model for `CombMembership` to join `WorkerBee` and `Comb`. However, for the initial implementation, I decided to stick to the simple "belongs_to/has_many" association between `WorkerBee` and `Comb`.
+* A `WorkerBee`'s  comb affiliation can be updated, however, the data of its past comb affiliations are lost.
 
 ### "Overruled" and "% Accepted"
 
@@ -109,12 +113,26 @@ I did this because I assumed that you shouldn't be able to update a Nectar allow
 
 #### Used JavaScript, not ActiveSupport::Concern
 
-Ultimately, I decided to calculate this in the frontend with JavaScript since the relevant variables were already needed for the graph. I did not utilize an ActiveSupport Concern, but learned more about the concept during research and look forward to implementing that approach in the future.
+Ultimately, I decided to calculate this in the frontend with JavaScript since the relevant variables were already needed in the frontend for the graph. I did not utilize an ActiveSupport Concern, but learned more about the concept during the research and look forward to implementing that approach in the future.
 
 ## Features
 
-* Thorough Model validations following the instructions describting the data.
-* Thorough Model validations following the instructions describting the data.
+* Thorough Model validations for `Appointment` attributes closely following the instructions describing the data.
+* In addition to the graph and table, the `WorkerBee` Show Page displays useful performance metrics of WorkerBees and presents them in a way that is easy to be understood even at a glance (color coded).
+* Prevents N+1 queries using ActiveRecord queries with `.joins` and `.includes`
+  * Index Page shows the most recent `Appointment` date for each WorkerBee to show who has been recently active.
+  * Show Page shows the WorkerBee's performance relative to Comb averages as well as Hive averages.
+* Responsive interface with toggling table view modes and "update-in-place" forms using JavaScript on top of Rails.
+
+## Final Thoughts
+
+It was my first time with Highcharts, but as you mentioned, the documentation was awesome and the examples were great for beginners. It seems like it's full of features, and I'm excited to have just scratched the surface of it. I have also been learning D3.js, but this seems like a much easier way to play around and learn.
+
+It was also my first time with Slim template or even an indented way to write HTML. It was so much more enjoyable to work with than erb. Thank you for the introduction.
+
+Working on this project and learning with it has gotten me even more excited for the prospect of working at Dosis. Hope you enjoy my program, and I look forward to hearing from you soon.
+
+-[Jaehyuk Lee](mailto:jhlumd@gmail.com)
 
 [favicon]: ./public/favicon.ico "Bee"
 [demo_index]: ./app/assets/images/demo_index.gif "Index page demo gif"
