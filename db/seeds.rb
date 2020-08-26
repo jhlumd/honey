@@ -67,7 +67,14 @@ num_combs.times do
 
       # Advisements are accepted by default
       # adv_accepted is nil when there is no new advisement
-      adv_accepted = new_adv.nil? ? nil : true
+      adv_accepted = nil
+      unless new_adv.nil?
+        if new_adv == nectar
+          adv_accepted = true;
+        else
+          adv_accepted = false;
+        end
+      end
 
       Appointment.create(worker_bee_id: cur_bee.id, date: date,
         pollen_globs: pollen_globs, nectar: nectar, advisement: new_adv,
