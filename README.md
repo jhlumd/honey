@@ -1,6 +1,6 @@
 # <img src="./public/favicon.ico" alt="Bee Icon" width="55" align="center"> Honey — A Rails app for managing your Hive
 
->I hope you have as much fun looking through and playing around with the program as I had putting it together!
+>I hope you have as much fun looking through and playing around with the it as I had putting it together!
 >
 >-Jae
 
@@ -8,7 +8,7 @@
 
 * [Demo Gifs and Screenshots](#demo-gifs-and-screenshots)
 * [Seeds](#seeds)
-* [Initial Thoughts and Decisions](#initial-thoughts-and-decisions)
+* [Initial Approaches and Decisions](#initial-approaches-and-decisions)
   * [Models](#models)
     * [Limitations of My Approach](#limitations-of-my-approach)
   * ["Overruled" and "% Accepted"](#overruled-and--accepted)
@@ -57,10 +57,9 @@ The seeds are random but follows the guidelines given in the instructions.
   * increment: 0.1
 * `nectar`
   * Given 2 to 3 times a week
-  * increment: 100
-  * is 0 7.75% of the time
+  * is 0 7.5% of those times
   * matches the currently active `advisement` amount 72.5% of the time
-  * is random within range: (200..20000) 20% of the time
+  * is random within range: (200..20000) and increment: 100 20% of the time
 * `advisement`
   * Given once about every 2 weeks
   * range: (200..20000)
@@ -74,7 +73,7 @@ However, the correlation between some of the data are not simulated. Such as:
 * “There is a strong correlation between Nectar intake and PollenGlobs collected.”
 * “If a WorkerBee's PollenGlobs drop below a particular Comb's SweetSpot, an Advisement will likely increase their Nectar allowance.”
 
-## Initial Thoughts and Decisions
+## Initial Approaches and Decisions
 
 ### Models
 
@@ -104,7 +103,7 @@ Some notes about the limitations of my approach:
 
 ### "Overruled" and "% Accepted"
 
-In my current understanding, an Advisement being "Accepted" or "Overruled" is different from the concept of "Accepted" or "Not Accepted" that exists for every nectar allowance for the calculation of "% Accepted". I made some assumptions about these concepts to complete the project.
+In my current understanding, an Advisement being "Accepted" or "Overruled" is different from the concept of "Accepted" or "Not Accepted" that exists for every nectar allowance used for the calculation of "% Accepted". I made some assumptions about this to complete the project.
 
 * Advisement "accepted" vs "overruled" is a different concept from instances of Nectar allowances "accepting" vs "not accepting" the currently active Advisement amount.
 * Advisements can be "overruled" only on rows of `Appointment`s where the `advisement` column is not `nil`. This is the `adv_accepted` column of the `Appointment` Model, and this is what is updated via the "Edit Advisement" form on the table of the WorkerBee show page.
@@ -118,7 +117,7 @@ Ultimately, I decided to calculate this in the frontend with JavaScript since th
 ## Features
 
 * Thorough Model validations for `Appointment` attributes closely following the instructions describing the data.
-* In addition to the graph and table, the `WorkerBee` Show Page displays useful performance metrics of WorkerBees and presents them in a way that is easy to be understood even at a glance (color coded).
+* In addition to the graph and table, the `WorkerBee` Show Page displays useful performance metrics for WorkerBees and presents them in a way that is easy to be understood even at a glance (color coded).
 * Prevents N+1 queries using ActiveRecord queries with `.joins` and `.includes`
   * Index Page shows the most recent `Appointment` date for each WorkerBee to show who has been recently active.
   * Show Page shows the WorkerBee's performance relative to Comb averages as well as Hive averages.
@@ -126,11 +125,11 @@ Ultimately, I decided to calculate this in the frontend with JavaScript since th
 
 ## Final Thoughts
 
-It was my first time with Highcharts, but as you mentioned, the documentation was awesome and the examples were great for beginners. It seems like it's full of features, and I'm excited to have just scratched the surface of it. I have also been learning D3.js, but this seems like a much easier way to play around and learn.
+It was my first time with Highcharts, but as you mentioned, the documentation was awesome and the examples were great for beginners. It seems like it's full of features, and I'm excited to have just scratched the surface of it. I have also been learning D3.js, but this seems like a much easier way to play around with data visualization at first.
 
 It was also my first time with Slim template or even an indented way to write HTML. It was so much more enjoyable to work with than erb. Thank you for the introduction.
 
-Working on this project and learning with it has gotten me even more excited for the prospect of working at Dosis. Hope you enjoy my program, and I look forward to hearing from you soon.
+Working on this project and learning more about Rails has gotten me even more excited for the prospect of working at Dosis. I hope that you enjoy my program, and I look forward to hearing from you soon.
 
 -[Jaehyuk Lee](mailto:jhlumd@gmail.com)
 
