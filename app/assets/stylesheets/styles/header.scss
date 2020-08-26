@@ -7,22 +7,31 @@ section.header {
   border-radius: 1rem;
 
   div {
-    padding: 1rem;
+    height: 54px;
   }
 
   .header-left {
+    display: flex;
+    align-items: center;
     width: 300px;
-    @include link-style(darkkhaki, papayawhip)
+    @include link-style;
   }
 
   .page-title {
     font-weight: 600;
     text-transform: uppercase;
+    line-height: 54px;
   }
 
   .header-right {
     width: 300px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+  }
+
+  i {
+    padding: 0 1rem;
+    font-size: $xlarge-fz;
   }
 }
