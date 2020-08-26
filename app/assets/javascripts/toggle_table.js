@@ -5,9 +5,9 @@ function toggleTable() {
     .getElementsByTagName("tr");
 
   button.textContent =
-    button.textContent === "Regular View Mode"
-      ? "Enhanced View Mode"
-      : "Regular View Mode";
+    button.textContent === "View in Regular Mode"
+      ? "View in Enhanced Mode"
+      : "View in Regular Mode";
 
   for (const row of trs) {
     row.children[0].classList.toggle("collapse-col");

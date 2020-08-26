@@ -1,13 +1,19 @@
 section.table {
-  border: 1px solid blue;
-  // overflow-y: auto;
-  // max-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  margin: 1rem 0 2rem 0;
+  @include section-style;
+  @include button-style(khaki, peachpuff, $grey);
+
+  .table-toggle-button {
+    margin-bottom: 0.7rem;
+    width: 420px;
+  }
 
   table {
-    margin: 1rem auto; // fixme
-    @include table-style(lemonchiffon, khaki);
-    // (#f8f8f8, #f1f7ff);
-    // (lemonchiffon, khaki);
+    @include table-style(lemonchiffon, papayawhip);
 
     .overrule-col {
       display: flex;

@@ -12,7 +12,7 @@ section.header {
 
   .header-left {
     width: 300px;
-    @include link-style
+    @include link-style(darkkhaki, papayawhip)
   }
 
   .page-title {

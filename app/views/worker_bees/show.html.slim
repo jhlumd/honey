@@ -2,7 +2,7 @@
 section.header
   .header-left
     = fa_icon "home"
-    = link_to  " Back to Index", worker_bees_path
+    = link_to  "Back to Index", worker_bees_path
 
   .page-title Worker Bee Details
 
@@ -53,10 +53,8 @@ section.graph
 
 / --- Table --- /
 section.table
-  h2 This Bee's Appointments List
-
   button.table-toggle-button onclick="toggleTable()"
-    | Enhanced View Mode
+    | View in Enhanced Mode
 
   table
     thead
