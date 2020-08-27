@@ -43,7 +43,7 @@ You can apply a couple of settings for the seeds to be generated.
 
 * `num_combs` sets the number of Combs in your Hive. Currently set to 12.
 * `pop_min` and `pop_max` sets the range for the random numbers of WorkersBees to be generated for each Comb. Currently set to (9..15). So you'll get about 144 (12 * 12) bees in your Hive.
-* 15 "appointments" are generated for each WorkerBee (appointments will be explained later).
+* 15 "appointments" are generated for each WorkerBee. (Appointments will be explained later.)
 
 The seeds are random but follows the guidelines given in the instructions.
 
