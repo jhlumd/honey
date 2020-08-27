@@ -93,7 +93,7 @@ Instructions describe a "unique_id" for each WorkerBee for each Comb they have b
 #### Limitations of My Approach
 
 * This way of modeling the data assumes that every `pollen_globs` measurement and `advisement` is given on a `date` that `nectar` is given. This is how the data looks in the example given, so I decided it was acceptable.
-* A `WorkerBee`'s  comb affiliation can be updated, however, the data of its past comb affiliations are lost.
+* A `WorkerBee`'s  comb affiliation can be updated, but the information of its past comb affiliation is lost.
 
 ### "Overruled" and "% Accepted"
 
