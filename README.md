@@ -41,8 +41,8 @@
 
 You can apply a couple of settings for the seeds to be generated.
 
-* `num_combs` sets the number of different Combs in your Hive. Currently set to 12.
-* `pop_min` and `pop_max` sets the range for how many WorkersBees will be randomly generated for each Comb. Currently set to (9..15). So you'll get about 144 bees in your Hive.
+* `num_combs` sets the number of Combs in your Hive. Currently set to 12.
+* `pop_min` and `pop_max` sets the range for the random numbers of WorkersBees to be generated for each Comb. Currently set to (9..15). So you'll get about 144 (12 * 12) bees in your Hive.
 * 15 "appointments" are generated for each WorkerBee (appointments will be explained later).
 
 The seeds are random but follows the guidelines given in the instructions.
@@ -53,9 +53,9 @@ The seeds are random but follows the guidelines given in the instructions.
   * increment: 0.1
 * `nectar`
   * Given 2 to 3 times a week
-  * is 0 7.5% of those times
-  * matches the currently active `advisement` amount 72.5% of the time
-  * is random within range: (200..20000) and increment: 100 20% of the time
+  * is 0 for 7.5% of those times
+  * matches the currently active `advisement` amount for 72.5% of the time
+  * is random within range: (200..20000) and increment: 100 for 20% of the time
 * `advisement`
   * Given once about every 2 weeks
   * range: (200..20000)
@@ -92,29 +92,27 @@ Instructions describe a "unique_id" for each WorkerBee for each Comb they have b
 
 #### Limitations of My Approach
 
-Some notes about the limitations of my approach:
-
 * This way of modeling the data assumes that every `pollen_globs` measurement and `advisement` is given on a `date` that `nectar` is given. This is how the data looks in the example given, so I decided it was acceptable.
 * A `WorkerBee`'s  comb affiliation can be updated, however, the data of its past comb affiliations are lost.
 
 ### "Overruled" and "% Accepted"
 
-In my current understanding, an Advisement being "Accepted" or "Overruled" is different from the concept of "Accepted" or "Not Accepted" that exists for every nectar allowance used for the calculation of "% Accepted". I made some assumptions about this to complete the project.
+In my current understanding, an Advisement being "Accepted"/"Overruled" is different from being "Accepted"/"Not Accepted" at each nectar allowance. I made the following assumptions about these concepts to complete the project:
 
-* Advisement "accepted" vs "overruled" is a different concept from instances of Nectar allowances "accepting" vs "not accepting" the currently active Advisement amount.
-* Advisements can be "overruled" only on rows of `Appointment`s where the `advisement` column is not `nil`. This is the `adv_accepted` column of the `Appointment` Model, and this is what is updated via the "Edit Advisement" form on the table of the WorkerBee show page.
+* "Accepted"/"Overruled" describe the state of each `advisement` and is represented in my model by the `adv_accepted` column. This is not directly related to the calculation of "% Accepted". User can update this value from "Accepted" to "Overruled" via the "Edit Advisement" form on the table of the WorkerBee show page.
+* "Accepted"/"Not Accepted" describe each instance of `nectar` allowance, namely, whether it is equal to the value of the currently active `advisement`. This is not specifically recorded into the DB because it can be inferred from `nectar` and `advisement`. This is used for the calculation of "% Accepted".
 
-I did this because I assumed that you shouldn't be able to update a Nectar allowance amount or the Advisement amount of a date long past.
+I did this because I assumed that the user shouldn't be able to update a Nectar allowance amount or the Advisement amount of a date long past because the Nectar has likely already been given.
 
 #### Used JavaScript, not ActiveSupport::Concern
 
-Ultimately, I decided to calculate this in the frontend with JavaScript since the relevant variables were already needed in the frontend for the graph. I did not utilize an ActiveSupport Concern, but learned more about the concept during the research and look forward to implementing that approach in the future.
+Ultimately, I decided to calculate "% Accepted" in the frontend with JavaScript since the relevant variables were already needed in the frontend for the graph. I did not utilize an ActiveSupport Concern, but learned more about the concept during the research and look forward to implementing that approach in the future.
 
 ## Features
 
 * Thorough Model validations for `Appointment` attributes closely following the instructions describing the data.
 * In addition to the graph and table, the `WorkerBee` Show Page displays useful performance metrics for WorkerBees and presents them in a way that is easy to be understood even at a glance (color coded).
-* Prevents N+1 queries using ActiveRecord queries with `.joins` and `.includes`
+* Prevents N+1 queries using ActiveRecord queries with `.includes` and `.joins`
   * Index Page shows the most recent `Appointment` date for each WorkerBee to show who has been recently active.
   * Show Page shows the WorkerBee's performance relative to Comb averages as well as Hive averages.
 * Responsive interface with toggling table view modes and "update-in-place" forms using JavaScript on top of Rails.
@@ -123,7 +121,7 @@ Ultimately, I decided to calculate this in the frontend with JavaScript since th
 
 It was my first time with Highcharts, but as you mentioned, the documentation was awesome and the examples were great for beginners. It seems like it's full of features, and I'm excited to have just scratched the surface of it. I have also been learning D3.js, but this seems like a much easier way to play around with data visualization at first.
 
-It was also my first time with Slim template or even an indented way to write HTML. It was so much more enjoyable to work with than erb. Thank you for the introduction.
+It was also my first time with Slim templating or even an indented way to write HTML. It was much more enjoyable to work with than ERB and HTML. Thank you for the introduction.
 
 Working on this project and learning more about Rails has gotten me even more excited for the prospect of working at Dosis. I hope that you enjoy my program, and I look forward to hearing from you soon.
 
