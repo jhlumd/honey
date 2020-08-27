@@ -9,6 +9,7 @@
     * [Limitations of My Approach](#limitations-of-my-approach)
   * ["Overruled" and "% Accepted"](#overruled-and--accepted)
 * [Features](#features)
+* [Future Directions](#future-directions)
 * [Final Thoughts](#final-thoughts)
 
 ## Demo Gifs and Screenshots
@@ -111,11 +112,17 @@ Ultimately, I decided to calculate "% Accepted" in the frontend with JavaScript 
 ## Features
 
 * Thorough Model validations for `Appointment` attributes closely following the instructions describing the data.
-* In addition to the graph and table, the `WorkerBee` Show Page displays useful performance metrics for WorkerBees and presents them in a way that is easy to be understood even at a glance (color coded).
+* In addition to the graph and table, the `WorkerBee` Show Page displays useful performance metrics for WorkerBees and presents them in a way that is easy to understand even at a glance (color-coded).
 * Prevents N+1 queries using ActiveRecord queries with `.includes` and `.joins`
   * Index Page shows the most recent `Appointment` date for each WorkerBee to show who has been recently active.
   * Show Page shows the WorkerBee's performance relative to Comb averages as well as Hive averages.
 * Responsive interface with toggling table view modes and "update-in-place" forms using JavaScript on top of Rails.
+
+## Future Directions
+
+* Add a fun "random bee" route for the empty space on the top right of the header.
+* Add a scatter plot on the Index Page displaying every WorkerBee's total Nectar consumed versus total PollenGlobs collected.
+* Add a feature to sort the WorkerBees on the Index Page by ranking Nectar units per p/g of each bee.
 
 ## Final Thoughts
 
