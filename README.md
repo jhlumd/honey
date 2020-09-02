@@ -46,21 +46,21 @@ You can apply a couple of settings for the seeds to be generated.
 * `pop_min` and `pop_max` sets the range for the random numbers of WorkersBees to be generated for each Comb. Currently set to (9..15). So you'll get about 144 (12 * 12) bees in your Hive.
 * 15 "appointments" are generated for each WorkerBee. (Appointments will be explained later.)
 
-The seeds are random but follows the guidelines given in the instructions.
+The seeds are random but follow the guidelines from the instructions.
 
 * `pollen_globs`
   * Measured about once weekly
   * range: (5.0..17.9)
   * increment: 0.1
+* `advisement`
+  * Given once about every 2 weeks
+  * range: (200..20000)
+  * increment: 100
 * `nectar`
   * Given 2 to 3 times a week
   * is 0 for 7.5% of those times
   * matches the currently active `advisement` amount for 72.5% of the time
   * is random within range: (200..20000) and increment: 100 for 20% of the time
-* `advisement`
-  * Given once about every 2 weeks
-  * range: (200..20000)
-  * increment: 100
 * `sweet_spot`
   * range: (10.0..15.0)
   * increment: 0.1
@@ -78,7 +78,7 @@ However, the correlation between some of the data are not simulated. Such as:
 
 My first thought was to create separate Models for each of Nectar, PollenGlob, and Advisement because Advisement seemed complex enough for it's own table. However, I eventually decided to use a single Model called `Appointment` to keep track of them all. The main reason was how the data was ultimately to be presented as shown in the example row structure — all sharing one table and ordered by date.
 
-`Appointment`s would have the following attributes:
+`Appointment`s have the following attributes:
 
 * `worker_bee_id`
 * `date`
@@ -98,10 +98,10 @@ Instructions describe a "unique_id" for each WorkerBee for each Comb they have b
 
 ### "Overruled" and "% Accepted"
 
-In my current understanding, an Advisement being "Accepted"/"Overruled" is different from being "Accepted"/"Not Accepted" at each nectar allowance. I made the following assumptions about these concepts to complete the project:
+In my current understanding, an Advisement being "Accepted/Overruled" is different from being "Accepted/Not Accepted" at each nectar allowance. I made the following assumptions about these concepts to complete the project:
 
-* "Accepted"/"Overruled" describe the state of each `advisement` and is represented in my model by the `adv_accepted` column. This is not directly related to the calculation of "% Accepted". User can update this value from "Accepted" to "Overruled" via the "Edit Advisement" form on the table of the WorkerBee show page.
-* "Accepted"/"Not Accepted" describe each instance of `nectar` allowance, namely, whether it is equal to the value of the currently active `advisement`. This is not specifically recorded into the DB because it can be inferred from `nectar` and `advisement`. This is used for the calculation of "% Accepted".
+* "Accepted/Overruled" describe the state of each `advisement` and is represented in my model by the `adv_accepted` column. This is not directly related to the calculation of "% Accepted". User can update this value from "Accepted" to "Overruled" via the "Edit Advisement" form on the table of the WorkerBee show page.
+* "Accepted/Not Accepted" describe each instance of `nectar` allowance, namely, whether it is equal to the value of the currently active `advisement`. This is not specifically recorded into the DB because it can be inferred from `nectar` and `advisement`. This is used for the calculation of "% Accepted".
 
 I did this because I assumed that the user shouldn't be able to update a Nectar allowance amount or the Advisement amount of a date long past because the Nectar has likely already been given.
 
@@ -115,7 +115,7 @@ Ultimately, I decided to calculate "% Accepted" in the frontend with JavaScript 
 * In addition to the graph and table, the `WorkerBee` Show Page displays useful performance metrics for WorkerBees and presents them in a way that is easy to understand even at a glance (color-coded).
 * Prevents N+1 queries using ActiveRecord queries with `.includes` and `.joins`
   * Index Page shows the most recent `Appointment` date for each WorkerBee to show who has been recently active.
-  * Show Page shows the WorkerBee's performance relative to Comb averages as well as Hive averages.
+  * Show Page shows the WorkerBee's performance relative to its Comb average as well as the Hive average.
 * Responsive interface with toggling table view modes and "update-in-place" forms using JavaScript on top of Rails.
 
 ## Future Directions
