@@ -1,7 +1,7 @@
 function calculatePercentAccepted(percentData) {
   let activeAdvisement;
-  let numAccepted = 0;
   let numTotal = 0;
+  let numAccepted = 0;
   const percentAcceptedValues = [];
 
   for (const pair of percentData) {
@@ -9,16 +9,12 @@ function calculatePercentAccepted(percentData) {
 
     if (newAdvisement !== null) {
       activeAdvisement = newAdvisement;
-      numAccepted = 0;
       numTotal = 0;
+      numAccepted = 0;
     }
 
-    if (nectarConsumed === activeAdvisement) {
-      numAccepted++;
-      numTotal++;
-    } else {
-      numTotal++;
-    }
+    numTotal++;
+    if (nectarConsumed === activeAdvisement) numAccepted++;
 
     percentAcceptedValues.push(Math.round((numAccepted / numTotal) * 100));
   }
