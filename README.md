@@ -111,12 +111,12 @@ Ultimately, I decided to calculate "% Accepted" in the frontend with JavaScript 
 
 ## Features
 
-* Thorough Model validations for `Appointment` attributes closely following the instructions describing the data.
+* Thorough Model validations for `Appointment` attributes closely following the description of the data in the instructions.
 * In addition to the graph and table, the `WorkerBee` Show Page displays useful performance metrics for WorkerBees and presents them in a way that is easy to understand even at a glance (color-coded).
 * Prevents N+1 queries using ActiveRecord queries with `.includes` and `.joins`
   * Index Page shows the most recent `Appointment` date for each WorkerBee to show who has been recently active.
   * Show Page shows the WorkerBee's performance relative to its Comb average as well as the Hive average.
-* Responsive interface with toggling table view modes and "update-in-place" forms using JavaScript on top of Rails.
+* Responsive interface (toggleable table view modes, "update-in-place" forms, etc.) using JavaScript on top of Rails.
 
 ## Future Directions
 
