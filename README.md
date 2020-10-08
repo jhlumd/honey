@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+* [Getting Started](#getting-started)
 * [Demo Gifs and Screenshots](#demo-gifs-and-screenshots)
 * [Seeds](#seeds)
 * [Initial Approaches and Decisions](#initial-approaches-and-decisions)
@@ -11,6 +12,12 @@
 * [Features](#features)
 * [Future Directions](#future-directions)
 * [Final Thoughts](#final-thoughts)
+
+## Getting Started
+
+`bundle install`
+
+`rails s`
 
 ## Demo Gifs and Screenshots
 
@@ -130,7 +137,7 @@ It was my first time with Highcharts, but as you mentioned, the documentation wa
 
 It was also my first time with Slim templating or even an indented way to write HTML. It was much more enjoyable to work with than ERB and HTML. Thank you for the introduction.
 
-Working on this project and learning more about Rails has gotten me even more excited for the prospect of working at Dosis. I hope that you enjoy my program, and I look forward to hearing from you soon.
+I hope that you enjoy my program, and I look forward to hearing from you soon.
 
 -[Jaehyuk Lee](mailto:jhlumd@gmail.com)
 
