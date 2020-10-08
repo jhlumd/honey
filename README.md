@@ -17,6 +17,8 @@
 
 `bundle install`
 
+`rails db:setup`
+
 `rails s`
 
 ## Demo Gifs and Screenshots
